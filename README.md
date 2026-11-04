@@ -1,0 +1,61 @@
+# Timón Sublimados — sitio web
+
+Sitio de una sola página para Timón Sublimados (Miramar, Buenos Aires): sublimación, estampados, ploteos, personalizados, diseño y corte y confección de indumentaria.
+
+React 19 + TypeScript + Tailwind CSS 4 + Motion + Lucide. Sin backend: todas las consultas salen por WhatsApp con el mensaje ya escrito.
+
+## Uso
+
+```bash
+npm install
+npm run dev        # desarrollo en http://localhost:5173
+npm run build      # versión de producción en dist/
+npm run preview    # probar la versión de producción
+```
+
+`dist/` es estático: se puede subir tal cual a Hostinger, Netlify, Vercel o cualquier hosting.
+
+## Estructura
+
+```
+src/
+  App.tsx                 orden de las secciones
+  data/
+    site.ts               WhatsApp, Instagram, mensajes predefinidos y menú
+    services.ts           los seis servicios, lista de productos y clientes
+    works.ts              trabajos de la galería (título, detalle, categoría, formato)
+    image-meta.json       generado por `npm run images`
+  components/
+    Header, Hero, Services, Catalog, Gallery, Customize, Workshop, FinalCta, Footer, WhatsAppFab
+    brand/                logo vectorial (extraído del PDF original) e íconos de redes
+    ui/                   Photo, Button, Reveal, ProcessVideo
+public/
+  img/works/              fotos optimizadas (WebP en 480, 960 y 1440 px)
+  media/                  videos cortos del taller (sin audio)
+  favicon.svg, og-image.jpg, logo-timon.svg
+assets-source/
+  logo/logo-timon.pdf     logo original
+  instagram/seleccion/    fotos originales usadas en la web (con nombre descriptivo)
+  instagram/archivo/      todas las fotos descargadas del Instagram (218), por código de publicación
+scripts/
+  optimize-images.mjs     genera las WebP y image-meta.json
+  og-image.mjs            genera la imagen para compartir el link
+```
+
+## Cambios frecuentes
+
+- **Número de WhatsApp o Instagram:** `src/data/site.ts`.
+- **Textos de los mensajes de WhatsApp:** `WA_MESSAGES` en `site.ts`, `waMessage` de cada servicio en `services.ts`.
+- **Agregar una foto a la galería:**
+  1. Copiar el `.jpg` a `assets-source/instagram/seleccion/` con un nombre como `remeras-club-x.jpg`.
+  2. Correr `npm run images`.
+  3. Sumarla en `WORKS` (`src/data/works.ts`) con su título, detalle, categoría y formato (`square`, `tall`, `wide` o `big`).
+- **Clientes de la cinta:** `CLIENTS` en `services.ts`.
+
+## Contenido
+
+- Todas las fotos y videos son trabajos reales publicados en [@timonsublimados](https://www.instagram.com/timonsublimados/).
+- Se evitaron fotos con caras de chicos y productos con personajes de terceros (Disney, Pixar, etc.).
+- Los clientes listados son los que la marca etiquetó o agradeció públicamente en Instagram.
+- La historia del taller resume lo que Mariela contó en sus publicaciones.
+- No hay precios, años de experiencia, dirección exacta ni horarios porque no estaban publicados. Si se suman, el lugar natural es el footer (`Footer.tsx`) y la sección del taller.

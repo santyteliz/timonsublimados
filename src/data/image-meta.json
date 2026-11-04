@@ -1,0 +1,237 @@
+{
+  "almohadillas-semillas": {
+    "w": 1440,
+    "h": 1440,
+    "color": "rgb(24 24 40)"
+  },
+  "automates-tropicales": {
+    "w": 1080,
+    "h": 1080,
+    "color": "rgb(216 216 216)"
+  },
+  "bolsas-magic-wash": {
+    "w": 1080,
+    "h": 1080,
+    "color": "rgb(40 40 40)"
+  },
+  "bolsas-mates-gold": {
+    "w": 1440,
+    "h": 1440,
+    "color": "rgb(184 184 168)"
+  },
+  "bolsita-hibiscos": {
+    "w": 1080,
+    "h": 1080,
+    "color": "rgb(24 24 72)"
+  },
+  "bolsitas-semillas": {
+    "w": 1080,
+    "h": 1080,
+    "color": "rgb(24 24 72)"
+  },
+  "buzo-argentina": {
+    "w": 1440,
+    "h": 1440,
+    "color": "rgb(200 168 136)"
+  },
+  "buzo-cacho": {
+    "w": 1440,
+    "h": 1440,
+    "color": "rgb(72 56 56)"
+  },
+  "buzo-huerte-co": {
+    "w": 1080,
+    "h": 1080,
+    "color": "rgb(40 40 72)"
+  },
+  "chapitas-mascotas": {
+    "w": 1080,
+    "h": 1350,
+    "color": "rgb(184 200 184)"
+  },
+  "cinturon-hidratacion": {
+    "w": 1440,
+    "h": 1440,
+    "color": "rgb(120 120 120)"
+  },
+  "colchoneta-ave-paraiso": {
+    "w": 1080,
+    "h": 613,
+    "color": "rgb(232 216 216)"
+  },
+  "colchonetas-mascotas": {
+    "w": 738,
+    "h": 923,
+    "color": "rgb(248 248 232)"
+  },
+  "cuellitos-estampas": {
+    "w": 1440,
+    "h": 1440,
+    "color": "rgb(120 200 56)"
+  },
+  "cuellitos-nieve": {
+    "w": 960,
+    "h": 960,
+    "color": "rgb(216 216 184)"
+  },
+  "cuellitos-surf": {
+    "w": 1440,
+    "h": 1800,
+    "color": "rgb(8 8 8)"
+  },
+  "delantal-tropical": {
+    "w": 1080,
+    "h": 1350,
+    "color": "rgb(24 24 24)"
+  },
+  "equipo-ritmos": {
+    "w": 1440,
+    "h": 1440,
+    "color": "rgb(232 216 216)"
+  },
+  "estampas-propias": {
+    "w": 1440,
+    "h": 1440,
+    "color": "rgb(232 216 184)"
+  },
+  "fly-banner-veterinaria": {
+    "w": 590,
+    "h": 736,
+    "color": "rgb(168 200 152)"
+  },
+  "funda-carry-on": {
+    "w": 1080,
+    "h": 1440,
+    "color": "rgb(168 152 136)"
+  },
+  "gorra-huerte-co": {
+    "w": 1080,
+    "h": 1080,
+    "color": "rgb(40 40 72)"
+  },
+  "gorra-playa-beira": {
+    "w": 1080,
+    "h": 1080,
+    "color": "rgb(40 40 40)"
+  },
+  "gorras-long-beach": {
+    "w": 1080,
+    "h": 954,
+    "color": "rgb(8 8 72)"
+  },
+  "gorras-mates-gold": {
+    "w": 1440,
+    "h": 1440,
+    "color": "rgb(24 24 8)"
+  },
+  "gorras-signal": {
+    "w": 1440,
+    "h": 1800,
+    "color": "rgb(40 40 40)"
+  },
+  "historia-serigrafia": {
+    "w": 1440,
+    "h": 1440,
+    "color": "rgb(40 40 24)"
+  },
+  "kit-yerbera": {
+    "w": 1080,
+    "h": 1350,
+    "color": "rgb(216 200 152)"
+  },
+  "llaveros-banderas": {
+    "w": 1080,
+    "h": 1080,
+    "color": "rgb(232 232 200)"
+  },
+  "malla-tropical": {
+    "w": 1199,
+    "h": 1199,
+    "color": "rgb(152 168 184)"
+  },
+  "mates-tropicales": {
+    "w": 1080,
+    "h": 1080,
+    "color": "rgb(248 248 248)"
+  },
+  "rallycross": {
+    "w": 1530,
+    "h": 2040,
+    "color": "rgb(56 136 216)"
+  },
+  "remera-cacho": {
+    "w": 1440,
+    "h": 1440,
+    "color": "rgb(200 152 152)"
+  },
+  "remera-dicioto": {
+    "w": 1440,
+    "h": 1440,
+    "color": "rgb(136 8 24)"
+  },
+  "remera-enjoy-the-ride": {
+    "w": 1440,
+    "h": 1800,
+    "color": "rgb(72 88 168)"
+  },
+  "remera-gas-monkey": {
+    "w": 1080,
+    "h": 1080,
+    "color": "rgb(24 24 24)"
+  },
+  "remera-guardavidas": {
+    "w": 1440,
+    "h": 1440,
+    "color": "rgb(184 8 24)"
+  },
+  "remera-tricolor": {
+    "w": 1152,
+    "h": 1440,
+    "color": "rgb(56 184 136)"
+  },
+  "remeras-johnnys": {
+    "w": 1440,
+    "h": 1440,
+    "color": "rgb(40 40 40)"
+  },
+  "remeras-veterinaria": {
+    "w": 960,
+    "h": 960,
+    "color": "rgb(200 216 232)"
+  },
+  "running-15k": {
+    "w": 1440,
+    "h": 1440,
+    "color": "rgb(24 24 24)"
+  },
+  "taller-overlock": {
+    "w": 1080,
+    "h": 1350,
+    "color": "rgb(232 216 184)"
+  },
+  "tazas-beach-house": {
+    "w": 1440,
+    "h": 1440,
+    "color": "rgb(200 200 200)"
+  },
+  "tazas-rugby": {
+    "w": 1920,
+    "h": 1080,
+    "color": "rgb(200 200 200)"
+  },
+  "top-hockey": {
+    "w": 1225,
+    "h": 817,
+    "color": "rgb(56 40 40)"
+  },
+  "top-manguitas": {
+    "w": 1440,
+    "h": 1440,
+    "color": "rgb(184 184 184)"
+  },
+  "tops-deportivos": {
+    "w": 1440,
+    "h": 1440,
+    "color": "rgb(216 184 168)"
+  }
+}
