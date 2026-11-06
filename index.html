@@ -9,6 +9,8 @@
       content="Taller en Miramar: ropa deportiva y uniformes, productos personalizados y sublimados, souvenirs y todo para tu cumple, impresión 3D y productos con la marca de tu negocio. Lo pedís, lo tenés."
     />
     <meta name="theme-color" content="#1E44FF" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href="https://timonsublimados.vercel.app/" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
@@ -20,21 +22,50 @@
       property="og:description"
       content="Ropa deportiva, personalizados, souvenirs para cumpleaños, impresión 3D y productos para negocios en Miramar. Contanos tu idea por WhatsApp."
     />
-    <meta property="og:image" content="/og-image.jpg" />
+    <meta property="og:url" content="https://timonsublimados.vercel.app/" />
+    <meta property="og:image" content="https://timonsublimados.vercel.app/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Timón Sublimados: ropa deportiva y personalizados en Miramar" />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Timón Sublimados · Lo pedís, lo tenés" />
+    <meta name="twitter:image" content="https://timonsublimados.vercel.app/og-image.jpg" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Velocidad: la foto principal del inicio empieza a bajar antes que el JavaScript -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,300..800&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      as="image"
+      href="/img/works/top-tropical-frente-960.webp"
+      imagesrcset="/img/works/top-tropical-frente-480.webp 480w, /img/works/top-tropical-frente-960.webp 960w, /img/works/top-tropical-frente-1440.webp 1200w"
+      imagesizes="(min-width: 1024px) 34rem, 90vw"
+      fetchpriority="high"
     />
+
+    <!-- Tipografía alojada en el mismo sitio (sin esperar a Google Fonts). Bricolage Grotesque, licencia OFL. -->
+    <link rel="preload" href="/fonts/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <style>
+      @font-face {
+        font-family: 'Bricolage Grotesque';
+        font-style: normal;
+        font-weight: 400 800;
+        font-stretch: 75% 100%;
+        font-display: swap;
+        src: url('/fonts/bricolage-grotesque-latin.woff2') format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+    </style>
 
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
+        "@id": "https://timonsublimados.vercel.app/#negocio",
         "name": "Timón Sublimados",
+        "url": "https://timonsublimados.vercel.app/",
+        "image": "https://timonsublimados.vercel.app/og-image.jpg",
+        "logo": "https://timonsublimados.vercel.app/logo-timon.svg",
+        "areaServed": [{ "@type": "City", "name": "Miramar" }, { "@type": "AdministrativeArea", "name": "General Alvarado" }],
+        "knowsAbout": ["Sublimación", "Ropa deportiva", "Uniformes para equipos", "Estampado DTF", "Serigrafía", "Impresión 3D", "Souvenirs personalizados", "Tazas personalizadas", "Ploteo y vinilo de corte"],
         "description": "Ropa deportiva y uniformes, productos personalizados y sublimados, souvenirs y decoración para cumpleaños, impresión 3D, estampados, diseño, ploteos y corte y confección de indumentaria.",
         "slogan": "Lo pedís, lo tenés",
         "telephone": "+54 2291 45-0621",
@@ -44,12 +75,25 @@
           "addressRegion": "Buenos Aires",
           "addressCountry": "AR"
         },
-        "sameAs": ["https://www.instagram.com/timonsublimados/"]
+        "sameAs": ["https://www.instagram.com/timonsublimados/"],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+54 2291 45-0621",
+          "contactType": "customer service",
+          "availableLanguage": "es"
+        }
       }
     </script>
   </head>
   <body>
     <div id="root"></div>
+    <noscript>
+      <h1>Timón Sublimados · Lo pedís, lo tenés</h1>
+      <p>
+        Taller en Miramar: ropa deportiva y uniformes, personalizados y souvenirs, impresión 3D y productos con la marca
+        de tu negocio. Escribinos por WhatsApp al 2291 45-0621 o en Instagram @timonsublimados.
+      </p>
+    </noscript>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

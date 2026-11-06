@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://timonsublimados.vercel.app/sitemap.xml

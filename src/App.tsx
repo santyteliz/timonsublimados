@@ -9,7 +9,6 @@ import { Gallery } from './components/Gallery'
 import { Header } from './components/Header'
 import { Hero } from './components/Hero'
 import { Intro } from './components/Intro'
-import { Press } from './components/Press'
 import { Services } from './components/Services'
 import { WhatsAppFab } from './components/WhatsAppFab'
 import { Workshop } from './components/Workshop'
@@ -40,7 +39,6 @@ export default function App() {
       <main id="contenido">
         <Hero ready={revealed} />
         <Services />
-        <Press />
         <Catalog />
         <Birthday />
         <Gallery />

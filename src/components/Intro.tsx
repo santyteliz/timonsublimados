@@ -3,7 +3,7 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import { INTRO_KEY as KEY } from '../lib/intro'
 import { LOGO_FULL } from './brand/logo-paths'
 
-const HOLD = 2000
+const HOLD = 1500
 const ease = [0.22, 1, 0.36, 1] as const
 const curtain = [0.76, 0, 0.24, 1] as const
 

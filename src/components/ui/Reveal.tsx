@@ -21,21 +21,25 @@ export function Reveal({ children, delay = 0, className, y = 22 }: { children: R
 /**
  * Títulos: el texto sube desde abajo de una línea invisible, como en el hero.
  * Va dentro del <h2>, así el lector de pantalla lee el título normal.
+ * El scroll se mira en la línea de afuera (siempre visible): el texto escondido debajo de la máscara
+ * no lo detecta el navegador, y el título quedaría oculto para siempre.
  */
 export function Rise({ children, delay = 0 }: { children: ReactNode; delay?: number }) {
   const reduce = useReducedMotion()
   return (
-    <span className="block overflow-hidden pb-[0.08em]">
+    <motion.span
+      className="block overflow-hidden pb-[0.08em]"
+      initial={reduce ? 'show' : 'hide'}
+      whileInView="show"
+      viewport={viewport}
+    >
       <motion.span
         className="block"
-        initial={reduce ? false : { y: '105%' }}
-        whileInView={{ y: '0%' }}
-        viewport={viewport}
-        transition={{ duration: 0.9, delay, ease }}
+        variants={{ hide: { y: '105%' }, show: { y: '0%', transition: { duration: 0.8, delay, ease } } }}
       >
         {children}
       </motion.span>
-    </span>
+    </motion.span>
   )
 }
 

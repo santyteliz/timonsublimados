@@ -48,6 +48,14 @@ scripts/
 - Los enlaces internos son `<a href="#seccion">` normales, pero `src/lib/navigation.ts` intercepta el clic, hace el scroll descontando el header y no agrega `#` a la URL.
 - La animación de entrada (`src/components/Intro.tsx`) se muestra una vez por visita y nunca a quien tiene activado "reducir movimiento". Se saltea con un toque o una tecla.
 
+## Velocidad y SEO
+
+- La tipografía (Bricolage Grotesque, licencia OFL) está en `public/fonts/` y se precarga: no depende de Google Fonts.
+- La foto principal del inicio se precarga en `index.html`; el carrusel baja las demás de a una, después de que cargó la página.
+- `vercel.json` guarda en caché fotos, videos y fuentes.
+- `index.html` tiene título, descripción, Open Graph, datos estructurados (LocalBusiness), `canonical`, `robots.txt` y `sitemap.xml`.
+- **Si el sitio pasa a un dominio propio**, cambiar `https://timonsublimados.vercel.app` por el dominio nuevo en `index.html`, `public/robots.txt` y `public/sitemap.xml`.
+
 ## Cambios frecuentes
 
 - **Número de WhatsApp o Instagram:** `src/data/site.ts`.

@@ -26,6 +26,22 @@ export function Hero({ ready = true }: { ready?: boolean }) {
   const [paused, setPaused] = useState(false)
   const porthole = useRef<HTMLDivElement>(null)
   const [visible, setVisible] = useState(true)
+  // Velocidad: al cargar solo se baja la primera foto. Cuando la página terminó de cargar,
+  // se baja la siguiente del carrusel mientras se ve la actual (nunca todas juntas).
+  const [warm, setWarm] = useState(() => typeof document !== 'undefined' && document.readyState === 'complete')
+  const [reach, setReach] = useState(1)
+
+  useEffect(() => {
+    if (warm) return
+    const on = () => setWarm(true)
+    window.addEventListener('load', on, { once: true })
+    return () => window.removeEventListener('load', on)
+  }, [warm])
+
+  const go = (i: number) => {
+    setIndex(i)
+    setReach((r) => Math.max(r, i + 1))
+  }
 
   useEffect(() => {
     const el = porthole.current
@@ -37,7 +53,7 @@ export function Hero({ ready = true }: { ready?: boolean }) {
 
   useEffect(() => {
     if (reduce || paused || !visible || !ready) return
-    const t = window.setTimeout(() => setIndex((i) => (i + 1) % SLIDES.length), INTERVAL)
+    const t = window.setTimeout(() => go((index + 1) % SLIDES.length), INTERVAL)
     return () => window.clearTimeout(t)
   }, [index, reduce, paused, visible, ready])
 
@@ -45,7 +61,7 @@ export function Hero({ ready = true }: { ready?: boolean }) {
   const enter = (delay: number) =>
     reduce
       ? {}
-      : { initial: { opacity: 0, y: 40 }, animate: ready ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }, transition: { duration: 0.9, delay, ease } }
+      : { initial: { opacity: 0, y: 40 }, animate: ready ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }, transition: { duration: 0.6, delay, ease } }
 
   return (
     <section id="inicio" aria-labelledby="hero-title" className="relative overflow-hidden pt-28 md:pt-36">
@@ -53,12 +69,12 @@ export function Hero({ ready = true }: { ready?: boolean }) {
         <div className="lg:col-span-7">
           <h1 id="hero-title" className="display text-[clamp(4.1rem,27vw,13rem)] lg:text-[clamp(6rem,14vw,14rem)]">
             <span className="block overflow-hidden pb-[0.06em]">
-              <motion.span className="block" {...enter(0.05)}>
+              <motion.span className="block" {...enter(0)}>
                 Lo pedís,
               </motion.span>
             </span>
             <span className="block overflow-hidden pb-[0.06em]">
-              <motion.span className="block text-mar" {...enter(0.16)}>
+              <motion.span className="block text-mar" {...enter(0.08)}>
                 lo tenés.
               </motion.span>
             </span>
@@ -66,13 +82,13 @@ export function Hero({ ready = true }: { ready?: boolean }) {
 
           <motion.p
             className="mt-6 max-w-[34rem] text-[1.15rem] leading-relaxed text-ink-soft text-pretty md:mt-8 md:text-[1.3rem]"
-            {...enter(0.32)}
+            {...enter(0.14)}
           >
             Ropa deportiva, personalizados, souvenirs para tu cumple y todo lo que tu negocio necesita con su marca.
             Sublimamos, estampamos, cosemos e imprimimos en 3D en nuestro taller de Miramar.
           </motion.p>
 
-          <motion.div className="mt-8 flex flex-col gap-3 xs:flex-row md:mt-10" {...enter(0.42)}>
+          <motion.div className="mt-8 flex flex-col gap-3 xs:flex-row md:mt-10" {...enter(0.2)}>
             <ButtonLink href="#personaliza">Quiero personalizar</ButtonLink>
             <ButtonLink href="#trabajos" variant="outline">
               Ver nuestros trabajos
@@ -85,7 +101,7 @@ export function Hero({ ready = true }: { ready?: boolean }) {
           className="relative mx-auto w-full max-w-[34rem] lg:col-span-5"
           initial={reduce ? false : { opacity: 0, scale: 0.92, rotate: -4 }}
           animate={ready ? { opacity: 1, scale: 1, rotate: 0 } : { opacity: 0, scale: 0.92, rotate: -4 }}
-          transition={{ duration: 1.2, delay: 0.2, ease }}
+          transition={{ duration: 0.9, delay: 0.1, ease }}
         >
           <div
             ref={porthole}
@@ -96,6 +112,7 @@ export function Hero({ ready = true }: { ready?: boolean }) {
             <div className="relative size-full overflow-hidden rounded-full bg-mist [transform:translateZ(0)]">
               {SLIDES.map((s, i) => {
                 const on = i === index
+                if (i !== 0 && !on && !(warm && i <= reach)) return null
                 return (
                   <motion.div
                     key={s.slug}
@@ -145,7 +162,7 @@ export function Hero({ ready = true }: { ready?: boolean }) {
                 <button
                   key={s.slug}
                   type="button"
-                  onClick={() => setIndex(i)}
+                  onClick={() => go(i)}
                   aria-label={s.label}
                   aria-current={i === index}
                   className="group grid size-8 place-items-center rounded-full"
@@ -167,7 +184,7 @@ export function Hero({ ready = true }: { ready?: boolean }) {
         className="mx-auto mt-14 max-w-[88rem] px-4 sm:px-6 md:mt-20 lg:px-10"
         initial={reduce ? false : { opacity: 0 }}
         animate={{ opacity: ready ? 1 : 0 }}
-        transition={{ delay: 0.7, duration: 0.8 }}
+        transition={{ delay: 0.35, duration: 0.6 }}
       >
         <div className="flex items-center gap-4 border-t-2 border-ink pt-5 pb-6">
           <a
