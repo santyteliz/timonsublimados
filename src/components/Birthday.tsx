@@ -101,7 +101,7 @@ export function Birthday() {
   }
 
   return (
-    <section id="cumple" aria-labelledby="cumple-title" className="relative overflow-hidden bg-[#ffe3ee] pt-32 pb-24 md:pt-40 md:pb-32">
+    <section id="cumple" aria-labelledby="cumple-title" className="relative overflow-hidden bg-[#ffe3ee] pt-28 pb-16 sm:pb-24 md:pt-40 md:pb-32">
       <Garland />
       <div className="mx-auto grid max-w-[88rem] gap-14 px-4 sm:px-6 lg:grid-cols-12 lg:gap-10 lg:px-10">
         <div className="lg:col-span-5">
@@ -125,7 +125,7 @@ export function Birthday() {
           </div>
         </div>
 
-        <Reveal className="lg:col-span-7 lg:pl-6" delay={0.1}>
+        <div className="lg:col-span-7 lg:pl-6">
           <form
             onSubmit={onSubmit}
             className="rounded-[2rem] bg-cotton p-5 shadow-[0_30px_80px_-40px_rgb(255_61_139/0.45)] sm:p-8 lg:p-10"
@@ -225,7 +225,7 @@ export function Birthday() {
               Armar mi cumple por WhatsApp
             </button>
           </form>
-        </Reveal>
+        </div>
       </div>
     </section>
   )

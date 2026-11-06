@@ -104,7 +104,7 @@ export function Customize() {
   }
 
   return (
-    <section id="personaliza" aria-labelledby="personaliza-title" className="on-dark bg-ink py-24 text-cotton md:py-32">
+    <section id="personaliza" aria-labelledby="personaliza-title" className="on-dark bg-ink py-16 text-cotton sm:py-24 md:py-32">
       <div className="mx-auto grid max-w-[88rem] gap-14 px-4 sm:px-6 lg:grid-cols-12 lg:gap-10 lg:px-10">
         <div className="lg:col-span-5">
           <Reveal>
@@ -135,7 +135,7 @@ export function Customize() {
           </ol>
         </div>
 
-        <Reveal className="lg:col-span-7 lg:pl-6" delay={0.1}>
+        <div className="lg:col-span-7 lg:pl-6">
           <form
             onSubmit={onSubmit}
             className="rounded-[2rem] bg-cotton p-5 text-ink sm:p-8 lg:p-10"
@@ -178,7 +178,7 @@ export function Customize() {
               Pedir presupuesto por WhatsApp
             </button>
           </form>
-        </Reveal>
+        </div>
       </div>
     </section>
   )

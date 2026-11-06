@@ -20,7 +20,7 @@ export function Catalog() {
   return (
     <section
       aria-labelledby="catalogo-title"
-      className="on-dark relative bg-mar py-24 text-cotton md:py-32"
+      className="on-dark relative bg-mar py-16 text-cotton sm:py-24 md:py-32"
       onPointerMove={(e) => {
         x.set(e.clientX)
         y.set(e.clientY)

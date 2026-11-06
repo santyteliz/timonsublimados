@@ -77,7 +77,7 @@ export function Services() {
   }
 
   return (
-    <section ref={section} id="servicios" aria-labelledby="servicios-title" className="py-24 md:py-32">
+    <section ref={section} id="servicios" aria-labelledby="servicios-title" className="py-16 sm:py-24 md:py-32">
       <div className="mx-auto max-w-[88rem] px-4 sm:px-6 lg:px-10">
         <Reveal className="grid gap-6 lg:grid-cols-12 lg:items-end">
           <h2 id="servicios-title" className="display text-[clamp(3rem,8vw,6.5rem)] lg:col-span-7">
@@ -152,7 +152,7 @@ export function Services() {
         {/* Celular y tablet: cada servicio con su propio color */}
         <div className="mt-12 flex flex-col gap-4 lg:hidden">
           {SERVICES.map((s, i) => (
-            <Reveal key={s.id} y={20}>
+            <div key={s.id}>
               <article
                 id={`servicio-${s.id}`}
                 className={`grid gap-6 overflow-hidden rounded-[1.75rem] p-4 pb-7 sm:p-6 md:grid-cols-2 md:gap-8 ${TONES[s.tone].panel}`}
@@ -164,7 +164,7 @@ export function Services() {
                   <Detail s={s} />
                 </div>
               </article>
-            </Reveal>
+            </div>
           ))}
         </div>
       </div>

@@ -10,7 +10,7 @@ export function FinalCta() {
         aria-hidden
         className="pointer-events-none absolute top-1/2 -right-[22%] w-[85vw] max-w-[60rem] -translate-y-1/2 text-cotton/[0.09] md:-right-[8%] md:w-[52vw]"
       />
-      <div className="relative mx-auto max-w-[88rem] px-4 py-24 sm:px-6 md:py-36 lg:px-10">
+      <div className="relative mx-auto max-w-[88rem] px-4 py-20 sm:px-6 sm:py-24 md:py-36 lg:px-10">
         <Reveal>
           <h2 id="cta-title" className="display max-w-[11ch] text-[clamp(3.6rem,11vw,10rem)]">
             <Rise>Tu próximo proyecto empieza acá.</Rise>

@@ -3,8 +3,10 @@ import { ChevronLeft, ChevronRight, Plus, X } from 'lucide-react'
 import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties } from 'react'
 import { SITE, waLink } from '../data/site'
 import { CATEGORIES, WORKS, img, imgMeta, type Category, type Shape, type Work } from '../data/works'
+import { fillShapes } from '../lib/packGrid'
 import { InstagramIcon, WhatsAppIcon } from './brand/SocialIcons'
 import { Photo } from './ui/Photo'
+import { viewport } from '../lib/motion'
 import { Reveal, Rise } from './ui/Reveal'
 
 const SPAN: Record<Shape, string> = {
@@ -22,6 +24,19 @@ const SIZES: Record<Shape, string> = {
 }
 
 const INITIAL = 14
+
+/** Columnas de la grilla según el ancho (las mismas que en las clases: 2, md:3, lg:4). */
+function useColumns() {
+  const get = () => (typeof window === 'undefined' ? 2 : window.matchMedia('(min-width: 1024px)').matches ? 4 : window.matchMedia('(min-width: 768px)').matches ? 3 : 2)
+  const [cols, setCols] = useState(get)
+  useEffect(() => {
+    const queries = [window.matchMedia('(min-width: 768px)'), window.matchMedia('(min-width: 1024px)')]
+    const update = () => setCols(get())
+    queries.forEach((q) => q.addEventListener('change', update))
+    return () => queries.forEach((q) => q.removeEventListener('change', update))
+  }, [])
+  return cols
+}
 
 export function Gallery() {
   const reduce = useReducedMotion()
@@ -49,10 +64,13 @@ export function Gallery() {
   }
 
   const list = useMemo(() => (filter === 'todo' ? WORKS : WORKS.filter((w) => w.category === filter)), [filter])
-  const visible = filter === 'todo' && !expanded ? list.slice(0, INITIAL) : list
+  const visible = useMemo(() => (filter === 'todo' && !expanded ? list.slice(0, INITIAL) : list), [filter, expanded, list])
+  // Ajusta el formato de las últimas fotos para que la grilla no deje huecos en blanco.
+  const cols = useColumns()
+  const shapes = useMemo(() => fillShapes(visible.map((w) => w.shape), cols), [visible, cols])
 
   return (
-    <section id="trabajos" aria-labelledby="trabajos-title" className="py-24 md:py-32">
+    <section id="trabajos" aria-labelledby="trabajos-title" className="py-16 sm:py-24 md:py-32">
       <div className="mx-auto max-w-[88rem] px-4 sm:px-6 lg:px-10">
         <Reveal className="grid gap-6 lg:grid-cols-12 lg:items-end">
           <h2 id="trabajos-title" className="display text-[clamp(3rem,8vw,6.5rem)] lg:col-span-7">
@@ -99,7 +117,7 @@ export function Gallery() {
               <motion.li
                 key={w.slug}
                 layout={!reduce}
-                className={`relative ${SPAN[w.shape]}`}
+                className={`relative ${SPAN[shapes[i]]}`}
                 initial={reduce ? false : { opacity: 0, scale: 0.94 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.94 }}
@@ -107,10 +125,10 @@ export function Gallery() {
               >
                 <motion.div
                   className="size-full"
-                  initial={reduce ? false : { opacity: 0, y: 36 }}
+                  initial={reduce ? false : { opacity: 0, y: 28 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: '0px 0px -8% 0px' }}
-                  transition={{ duration: 0.7, delay: (i % 2) * 0.08, ease: [0.22, 1, 0.36, 1] }}
+                  viewport={viewport}
+                  transition={{ duration: 0.6, delay: (i % cols) * 0.06, ease: [0.22, 1, 0.36, 1] }}
                 >
                 <button
                   type="button"
@@ -125,7 +143,7 @@ export function Gallery() {
                     slug={w.slug}
                     alt={`${w.title}. ${w.detail}`}
                     focus={w.focus}
-                    sizes={SIZES[w.shape]}
+                    sizes={SIZES[shapes[i]]}
                     className="absolute inset-0 size-full transition-transform duration-700 ease-out-soft group-hover:scale-[1.045]"
                   />
                   <span className="pointer-events-none absolute inset-x-2 bottom-2 hidden translate-y-3 items-center justify-between gap-3 rounded-[0.8rem] bg-cotton px-4 py-3 text-left opacity-0 transition-all duration-300 ease-out-soft group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100 md:flex">

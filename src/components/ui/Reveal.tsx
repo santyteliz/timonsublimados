@@ -1,11 +1,9 @@
 import { motion, useReducedMotion } from 'motion/react'
 import type { ReactNode } from 'react'
-
-const ease = [0.22, 1, 0.36, 1] as const
-const viewport = { once: true, margin: '0px 0px -12% 0px' } as const
+import { ease, viewport } from '../../lib/motion'
 
 /** Entrada suave al hacer scroll. Se usa solo en bloques grandes, una vez. */
-export function Reveal({ children, delay = 0, className, y = 28 }: { children: ReactNode; delay?: number; className?: string; y?: number }) {
+export function Reveal({ children, delay = 0, className, y = 22 }: { children: ReactNode; delay?: number; className?: string; y?: number }) {
   const reduce = useReducedMotion()
   return (
     <motion.div
@@ -13,7 +11,7 @@ export function Reveal({ children, delay = 0, className, y = 28 }: { children: R
       initial={reduce ? false : { opacity: 0, y }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={viewport}
-      transition={{ duration: 0.8, delay, ease }}
+      transition={{ duration: 0.65, delay, ease }}
     >
       {children}
     </motion.div>
@@ -55,12 +53,12 @@ export function Unveil({ children, delay = 0, className = '', radius = '1.2rem' 
         style={{ borderRadius: radius }}
         variants={{
           hide: { clipPath: `inset(100% 0% 0% 0% round ${radius})` },
-          show: { clipPath: `inset(0% 0% 0% 0% round ${radius})`, transition: { duration: 1, delay, ease: [0.65, 0, 0.35, 1] } },
+          show: { clipPath: `inset(0% 0% 0% 0% round ${radius})`, transition: { duration: 0.85, delay, ease: [0.65, 0, 0.35, 1] } },
         }}
       >
         <motion.div
           className="size-full"
-          variants={{ hide: { scale: 1.12 }, show: { scale: 1, transition: { duration: 1.4, delay, ease } } }}
+          variants={{ hide: { scale: 1.12 }, show: { scale: 1, transition: { duration: 1.2, delay, ease } } }}
         >
           {children}
         </motion.div>

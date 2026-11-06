@@ -28,7 +28,7 @@ const REASONS = [
 
 export function Workshop() {
   return (
-    <section id="taller" aria-labelledby="taller-title" className="overflow-hidden py-24 md:py-32">
+    <section id="taller" aria-labelledby="taller-title" className="overflow-hidden py-16 sm:py-24 md:py-32">
       <div className="mx-auto max-w-[88rem] px-4 sm:px-6 lg:px-10">
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-10">
           <div className="lg:col-span-6">
@@ -71,7 +71,7 @@ export function Workshop() {
           </Reveal>
         </div>
 
-        <div className="mt-24 grid gap-12 md:mt-32 lg:grid-cols-12 lg:gap-10">
+        <div className="mt-16 grid gap-12 sm:mt-24 md:mt-32 lg:grid-cols-12 lg:gap-10">
           <Reveal className="lg:col-span-4">
             <h3 className="display text-[clamp(2.6rem,5.6vw,4.5rem)]">¿Por qué elegir Timón?</h3>
             <div className="mt-8 hidden gap-3 lg:grid lg:grid-cols-2">
@@ -90,7 +90,7 @@ export function Workshop() {
         </div>
       </div>
 
-      <div className="mt-24 md:mt-32" aria-labelledby="clientes-title">
+      <div className="mt-16 sm:mt-24 md:mt-32" aria-labelledby="clientes-title">
         <p id="clientes-title" className="mx-auto max-w-[88rem] px-4 text-[1.1rem] font-semibold sm:px-6 lg:px-10">
           Marcas, clubes y eventos que trabajaron con nosotros
         </p>
