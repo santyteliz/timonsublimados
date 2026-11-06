@@ -46,7 +46,7 @@ function Detail({ s, headingLevel = 'h3' }: { s: Service; headingLevel?: 'h3' | 
         className={`mt-8 inline-flex min-h-13 items-center gap-2.5 self-start rounded-full px-6 font-semibold transition-colors lg:mt-auto ${t.button} ${t.dark ? 'on-dark' : ''}`}
       >
         <WhatsAppIcon className="size-5" />
-        Consultar por {s.name.charAt(0).toLowerCase() + s.name.slice(1)}
+        {s.cta ?? `Consultar por ${s.name.charAt(0).toLowerCase() + s.name.slice(1)}`}
       </a>
     </div>
   )
@@ -81,11 +81,11 @@ export function Services() {
       <div className="mx-auto max-w-[88rem] px-4 sm:px-6 lg:px-10">
         <Reveal className="grid gap-6 lg:grid-cols-12 lg:items-end">
           <h2 id="servicios-title" className="display text-[clamp(3rem,8vw,6.5rem)] lg:col-span-7">
-            Seis oficios, un mismo taller
+            Seis maneras de personalizar, un mismo taller
           </h2>
           <p className="max-w-[30rem] text-[1.15rem] leading-relaxed text-ink-soft text-pretty lg:col-span-5 lg:justify-self-end">
-            Del diseño a la plancha y de la plancha a la máquina de coser. Así resolvemos la ropa de tu equipo, tu gimnasio
-            o tu marca en un solo lugar.
+            Del diseño a la plancha y de la plancha a la máquina de coser. Así resolvemos la ropa de tu equipo, los
+            regalos y souvenirs de tu fiesta o lo que necesita tu negocio, en un solo lugar.
           </p>
         </Reveal>
 

@@ -10,6 +10,8 @@ export type Service = {
   /** Color de "tela" del panel */
   tone: 'mar' | 'sol' | 'fucsia' | 'menta' | 'ink' | 'mist'
   photo: Work['slug']
+  /** Texto del botón de WhatsApp (si no, «Consultar por …» con el nombre) */
+  cta?: string
   /** Posición del recorte de la foto (object-position) */
   focus?: string
   video?: { src: string; poster: string; label: string }
@@ -26,39 +28,23 @@ export const SERVICES: Service[] = [
     items: ['Tops y bikers', 'Mallas', 'Cuellitos y manguitas', 'Musculosas', 'Cinturones de hidratación', 'Uniformes de equipo'],
     tone: 'mar',
     photo: 'top-tropical-frente',
-    waMessage: '¡Hola! Quería consultar por ropa deportiva.',
-  },
-  {
-    id: 'sublimacion',
-    name: 'Sublimación',
-    hook: 'Color que no se va',
-    body:
-      'Imprimimos tu diseño en papel de sublimación y lo pasamos con la plancha. La tinta queda dentro de la tela, por eso los colores salen vivos y aguantan el entrenamiento y los lavados.',
-    items: ['Ropa deportiva', 'Cintas de medallas', 'Uniformes', 'Cuellitos', 'Gorras', 'Tazas'],
-    tone: 'sol',
-    photo: 'tops-planos',
     video: {
       src: '/media/proceso-sublimacion.mp4',
       poster: '/media/proceso-sublimacion.jpg',
       label: 'Video: estampas tropicales saliendo de la plancha de sublimación',
     },
-    waMessage: '¡Hola! Quería consultar por un trabajo de sublimación.',
+    waMessage: '¡Hola! Quería consultar por ropa deportiva.',
   },
   {
-    id: 'estampados',
-    name: 'Estampados',
-    hook: 'DTF, serigrafía y vinilo',
+    id: 'personalizados',
+    name: 'Personalizados',
+    hook: 'Sublimados con tu nombre, tu foto o tu diseño',
     body:
-      'Elegimos la técnica según la prenda y el diseño. Con DTF estampamos algodón, jean y gabardina, en telas claras y oscuras. La serigrafía la aprendimos en casa y la seguimos haciendo a la antigua.',
-    items: ['Remeras', 'Buzos y camperas', 'Ropa de equipo', 'Ropa de trabajo', 'Gorras', 'Bolsas'],
-    tone: 'menta',
-    photo: 'buzo-urban',
-    video: {
-      src: '/media/estampado-urban.mp4',
-      poster: '/media/estampado-urban.jpg',
-      label: 'Video: buzos estampados para Urban Team Training',
-    },
-    waMessage: '¡Hola! Quería consultar por estampado de remeras o buzos.',
+      'Tazas, mates, latas, almohadones y regalos con el nombre o el diseño que elijas. Los sublimamos con la plancha: la tinta queda dentro del material y los colores salen vivos. También armamos souvenirs para cumpleaños y eventos.',
+    items: ['Tazas con nombre', 'Mates', 'Latas y yerberas', 'Almohadones', 'Chapitas para mascotas', 'Souvenirs'],
+    tone: 'sol',
+    photo: 'tazas-nombre',
+    waMessage: '¡Hola! Quería consultar por un producto personalizado.',
   },
   {
     id: 'impresion-3d',
@@ -77,6 +63,35 @@ export const SERVICES: Service[] = [
     waMessage: '¡Hola! Quería consultar por un producto impreso en 3D.',
   },
   {
+    id: 'negocios',
+    name: 'Para tu negocio',
+    cta: 'Consultar para mi negocio',
+    hook: 'Tu marca, a la vista',
+    body:
+      'Trabajamos mucho con locales, balnearios, gimnasios y emprendimientos de la zona. Ropa de trabajo con tu logo, tazas, bolsas y gorras con tu marca, y con el plotter de corte, vidrieras y carteles para que te vean desde la vereda.',
+    items: ['Ropa de trabajo', 'Gorras con logo', 'Tazas y bolsas', 'Vidrieras', 'Carteles de lona', 'Vinilo de corte'],
+    tone: 'mist',
+    photo: 'plotter-de-corte',
+    focus: '62% 50%',
+    waMessage: '¡Hola! Tengo un negocio y quería consultar por productos con mi marca.',
+  },
+  {
+    id: 'estampados',
+    name: 'Estampados',
+    hook: 'DTF, serigrafía y vinilo',
+    body:
+      'Elegimos la técnica según la prenda y el diseño. Con DTF estampamos algodón, jean y gabardina, en telas claras y oscuras. La serigrafía la aprendimos en casa y la seguimos haciendo a la antigua.',
+    items: ['Remeras', 'Buzos y camperas', 'Ropa de equipo', 'Ropa de trabajo', 'Gorras', 'Bolsas'],
+    tone: 'menta',
+    photo: 'buzo-urban',
+    video: {
+      src: '/media/estampado-urban.mp4',
+      poster: '/media/estampado-urban.jpg',
+      label: 'Video: buzos estampados para Urban Team Training',
+    },
+    waMessage: '¡Hola! Quería consultar por estampado de remeras o buzos.',
+  },
+  {
     id: 'diseno',
     name: 'Diseño',
     hook: 'De la idea al archivo',
@@ -86,18 +101,6 @@ export const SERVICES: Service[] = [
     tone: 'ink',
     photo: 'estampas-propias',
     waMessage: '¡Hola! Tengo una idea y necesito ayuda con el diseño.',
-  },
-  {
-    id: 'ploteos',
-    name: 'Ploteos',
-    hook: 'Tu marca, a la vista',
-    body:
-      'Con el plotter de corte hacemos vidrieras, carteles de lona, vinilos e identificación para que tu negocio se vea desde la vereda.',
-    items: ['Vidrieras', 'Carteles de lona', 'Identificaciones', 'Vinilo de corte'],
-    tone: 'mist',
-    photo: 'plotter-de-corte',
-    focus: '62% 50%',
-    waMessage: '¡Hola! Quería consultar por ploteo y cartelería para mi local.',
   },
 ]
 
@@ -112,6 +115,18 @@ export const PRODUCTS: { name: string; photo?: Work['slug'] }[] = [
   { name: 'Remeras de running', photo: 'remeras-running-tandil' },
   { name: 'Cinturones de hidratación', photo: 'cinturon-hidratacion' },
   { name: 'Cintas de medallas', photo: 'cintas-medallas' },
+  { name: 'Secadores de soft', photo: 'secador-soft-3d' },
+  { name: 'Sujeta dorsales' },
+  { name: 'Pastilleros', photo: 'pastillero-3d' },
+  { name: 'Tazas con nombre', photo: 'tazas-nombre' },
+  { name: 'Mates', photo: 'mates-sublimados' },
+  { name: 'Souvenirs', photo: 'taza-benja' },
+  { name: 'Remeras de cumpleaños' },
+  { name: 'Banderines' },
+  { name: 'Decoración de tortas' },
+  { name: 'Almohadones', photo: 'almohadones-raton-perez' },
+  { name: 'Latas y yerberas', photo: 'latas-yerba-azucar' },
+  { name: 'Chapitas para mascotas', photo: 'chapitas-mascotas' },
   { name: 'Uniformes de equipo', photo: 'conjunto-omega' },
   { name: 'Buzos', photo: 'buzo-urban' },
   { name: 'Remeras', photo: 'remera-la-astral' },
@@ -120,9 +135,6 @@ export const PRODUCTS: { name: string; photo?: Work['slug'] }[] = [
   { name: 'Tazas', photo: 'tazas-surf-trips' },
   { name: 'Fundas de carry on', photo: 'funda-carry-on' },
   { name: 'Bolsas', photo: 'bolsa-flipper' },
-  { name: 'Secadores de soft', photo: 'secador-soft-3d' },
-  { name: 'Sujeta dorsales' },
-  { name: 'Pastilleros', photo: 'pastillero-3d' },
 ]
 
 /** Marcas, clubes y eventos que aparecen en los trabajos de Timón (Instagram y fotos de la clienta). */

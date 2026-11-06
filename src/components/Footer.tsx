@@ -68,7 +68,7 @@ export function Footer() {
 
         <div className="mt-16 flex flex-col gap-2 border-t border-cotton/15 pt-6 text-[0.92rem] text-cotton/55 sm:flex-row sm:justify-between">
           <p>© {year} Timón Sublimados</p>
-          <p>Ropa deportiva, sublimación, estampados, impresión 3D, diseño y ploteos en Miramar</p>
+          <p>Ropa deportiva, personalizados, souvenirs, impresión 3D y productos para negocios en Miramar</p>
         </div>
       </div>
     </footer>

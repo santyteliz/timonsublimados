@@ -1,5 +1,6 @@
 import { MotionConfig } from 'motion/react'
 import { useEffect, useState } from 'react'
+import { Birthday } from './components/Birthday'
 import { Catalog } from './components/Catalog'
 import { Customize } from './components/Customize'
 import { FinalCta } from './components/FinalCta'
@@ -39,6 +40,7 @@ export default function App() {
         <Hero ready={revealed} />
         <Services />
         <Catalog />
+        <Birthday />
         <Gallery />
         <Customize />
         <Workshop />

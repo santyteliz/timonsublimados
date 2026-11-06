@@ -20,6 +20,7 @@ export function waLink(message: string = WA_MESSAGES.general) {
 
 export const NAV = [
   { href: '#servicios', label: 'Servicios' },
+  { href: '#cumple', label: 'Cumples' },
   { href: '#trabajos', label: 'Trabajos' },
   { href: '#personaliza', label: 'Personalizá' },
   { href: '#taller', label: 'El taller' },

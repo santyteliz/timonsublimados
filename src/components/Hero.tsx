@@ -11,8 +11,10 @@ const SLIDES: { slug: Work['slug']; label: string; focus?: string }[] = [
   { slug: 'top-tropical-frente', label: 'Tops deportivos con estampa propia', focus: '50% 28%' },
   { slug: 'buzo-urban', label: 'Buzos para Urban Team Training', focus: '50% 30%' },
   { slug: 'conjunto-omega', label: 'Top y biker para Omega Entrenamiento', focus: '50% 40%' },
+  { slug: 'tazas-nombre', label: 'Tazas personalizadas con nombre', focus: '50% 50%' },
   { slug: 'kit-running-argentina', label: 'Kit de carrera con la misma estampa', focus: '50% 40%' },
   { slug: 'top-tropical-espalda', label: 'Espalda nadadora, confección propia', focus: '50% 35%' },
+  { slug: 'mates-sublimados', label: 'Mates sublimados', focus: '50% 55%' },
   { slug: 'remera-cvd', label: 'Remeras para CVD Fitness Club', focus: '50% 45%' },
 ]
 
@@ -67,8 +69,8 @@ export function Hero({ ready = true }: { ready?: boolean }) {
             className="mt-6 max-w-[34rem] text-[1.15rem] leading-relaxed text-ink-soft text-pretty md:mt-8 md:text-[1.3rem]"
             {...enter(0.32)}
           >
-            Ropa deportiva, uniformes para tu equipo y prendas con tu marca. Sublimamos, estampamos, cosemos e
-            imprimimos en 3D en nuestro taller de Miramar.
+            Ropa deportiva, personalizados, souvenirs para tu cumple y todo lo que tu negocio necesita con su marca.
+            Sublimamos, estampamos, cosemos e imprimimos en 3D en nuestro taller de Miramar.
           </motion.p>
 
           <motion.div className="mt-8 flex flex-col gap-3 xs:flex-row md:mt-10" {...enter(0.42)}>

@@ -17,8 +17,8 @@ const REASONS = [
     text: 'Mariela es profe de Educación Física y en el taller corremos. Los tops, cuellitos y cinturones de hidratación los usamos en nuestras propias carreras.',
   },
   {
-    title: 'Para tu equipo, tu gimnasio o tu marca',
-    text: 'Hacemos la ropa de equipos de running, gimnasios, clubes, escuelas de danza, balnearios y empresas de Miramar y la zona.',
+    title: 'Para tu equipo, tu negocio o tu fiesta',
+    text: 'Hacemos la ropa de equipos de running, gimnasios, clubes y escuelas de danza, lo que necesitan locales y balnearios de Miramar, y los personalizados y souvenirs de tu cumple.',
   },
   {
     title: 'Un taller de Miramar',

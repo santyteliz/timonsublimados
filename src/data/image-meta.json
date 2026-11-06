@@ -1,4 +1,9 @@
 {
+  "almohadones-raton-perez": {
+    "w": 1600,
+    "h": 900,
+    "color": "rgb(168 168 168)"
+  },
   "bolsa-flipper": {
     "w": 1148,
     "h": 1477,
@@ -34,6 +39,11 @@
     "h": 1600,
     "color": "rgb(72 72 72)"
   },
+  "buzo-primer-grado": {
+    "w": 900,
+    "h": 1600,
+    "color": "rgb(152 152 152)"
+  },
   "buzo-urban": {
     "w": 900,
     "h": 1600,
@@ -43,6 +53,11 @@
     "w": 505,
     "h": 593,
     "color": "rgb(24 24 24)"
+  },
+  "chapitas-mascotas": {
+    "w": 1080,
+    "h": 1350,
+    "color": "rgb(184 200 184)"
   },
   "cintas-flipper": {
     "w": 900,
@@ -134,10 +149,20 @@
     "h": 1600,
     "color": "rgb(24 24 24)"
   },
+  "latas-yerba-azucar": {
+    "w": 1080,
+    "h": 1350,
+    "color": "rgb(216 200 152)"
+  },
   "malla-tropical": {
     "w": 1199,
     "h": 1199,
     "color": "rgb(152 168 184)"
+  },
+  "mates-sublimados": {
+    "w": 1080,
+    "h": 1080,
+    "color": "rgb(248 248 248)"
   },
   "pastillero-3d": {
     "w": 720,
@@ -148,6 +173,11 @@
     "w": 900,
     "h": 510,
     "color": "rgb(232 232 232)"
+  },
+  "remera-baby-shower": {
+    "w": 1080,
+    "h": 1144,
+    "color": "rgb(168 168 152)"
   },
   "remera-cacho": {
     "w": 1440,
@@ -269,10 +299,20 @@
     "h": 1350,
     "color": "rgb(232 216 184)"
   },
+  "taza-benja": {
+    "w": 900,
+    "h": 760,
+    "color": "rgb(168 168 168)"
+  },
   "tazas-beach-house": {
     "w": 1440,
     "h": 1440,
     "color": "rgb(200 200 200)"
+  },
+  "tazas-nombre": {
+    "w": 900,
+    "h": 900,
+    "color": "rgb(168 168 168)"
   },
   "tazas-storani": {
     "w": 900,

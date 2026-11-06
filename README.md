@@ -1,6 +1,6 @@
 # Timón Sublimados — sitio web
 
-Sitio de una sola página para Timón Sublimados (Miramar, Buenos Aires): ropa deportiva y uniformes, sublimación, estampados, impresión 3D, diseño y ploteos.
+Sitio de una sola página para Timón Sublimados (Miramar, Buenos Aires): ropa deportiva y uniformes, personalizados y souvenirs, todo para cumpleaños, impresión 3D, productos para negocios, estampados y diseño.
 
 React 19 + TypeScript + Tailwind CSS 4 + Motion + Lucide. Sin backend: todas las consultas salen por WhatsApp con el mensaje ya escrito.
 
@@ -26,7 +26,7 @@ src/
     works.ts              trabajos de la galería (título, detalle, categoría, formato)
     image-meta.json       generado por `npm run images`
   components/
-    Header, Hero, Services, Catalog, Gallery, Customize, Workshop, FinalCta, Footer, WhatsAppFab
+    Header, Hero, Services, Catalog, Birthday («Armá tu cumple»), Gallery, Customize, Workshop, FinalCta, Footer, WhatsAppFab
     brand/                logo vectorial (extraído del PDF original) e íconos de redes
     ui/                   Photo, Button, Reveal, ProcessVideo
 public/
@@ -57,6 +57,7 @@ scripts/
   2. Correr `npm run images`.
   3. Sumarla en `WORKS` (`src/data/works.ts`) con su título, detalle, categoría y formato (`square`, `tall`, `wide` o `big`).
 - **Clientes de la cinta:** `CLIENTS` en `services.ts`.
+- **Opciones de «Armá tu cumple»:** `ITEMS` y `PHOTOS` en `src/components/Birthday.tsx`.
 
 ## Contenido
 

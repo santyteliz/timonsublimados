@@ -7,16 +7,17 @@ import meta from './image-meta.json'
  * Para sumar fotos: copiar el .jpg ahí, agregarlo acá y correr `npm run images`.
  */
 
-export type Category = 'deportivo' | 'equipos' | 'remeras' | 'gorras' | 'objetos' | 'locales'
+export type Category = 'deportivo' | 'equipos' | 'personalizados' | '3d' | 'remeras' | 'gorras' | 'locales'
 
 export const CATEGORIES: { id: Category | 'todo'; label: string }[] = [
   { id: 'todo', label: 'Todo' },
   { id: 'deportivo', label: 'Deportivo' },
   { id: 'equipos', label: 'Gimnasios y equipos' },
+  { id: 'personalizados', label: 'Personalizados y souvenirs' },
+  { id: '3d', label: 'Impresión 3D' },
   { id: 'remeras', label: 'Remeras y buzos' },
   { id: 'gorras', label: 'Gorras' },
-  { id: 'objetos', label: 'Tazas, 3D y más' },
-  { id: 'locales', label: 'Locales y marcas' },
+  { id: 'locales', label: 'Negocios y marcas' },
 ]
 
 /** Formato del recorte en la grilla. */
@@ -38,24 +39,32 @@ export const WORKS: Work[] = [
   { slug: 'buzo-urban', title: 'Buzos para Urban Team Training', detail: 'Equipo de running', category: 'equipos', shape: 'tall' },
   { slug: 'conjunto-omega', title: 'Top y biker para Omega', detail: 'Conjunto con el logo del gimnasio', category: 'equipos', shape: 'tall' },
   { slug: 'kit-running-argentina', title: 'Kit de carrera', detail: 'Remera, manguitas y cinturón con la misma estampa', category: 'deportivo', shape: 'tall', focus: '50% 40%' },
+  { slug: 'tazas-nombre', title: 'Tazas con nombre', detail: 'Una tanda entera, cada una con su nombre', category: 'personalizados', shape: 'square' },
   { slug: 'tops-planos', title: 'Tops recién cosidos', detail: 'Estampados y armados en el taller', category: 'deportivo', shape: 'square', focus: '50% 30%' },
   { slug: 'uniforme-parroquial', title: 'Uniforme de básquet', detail: 'Musculosa y short para Parroquial', category: 'equipos', shape: 'tall', focus: '50% 35%' },
+  { slug: 'mates-sublimados', title: 'Mates sublimados', detail: 'Cada uno con su diseño', category: 'personalizados', shape: 'square', focus: '50% 55%' },
   { slug: 'remera-cvd', title: 'Remeras para CVD Fitness Club', detail: 'Logo en dos colores', category: 'equipos', shape: 'square', focus: '50% 45%' },
   { slug: 'top-tropical-espalda', title: 'Espalda nadadora', detail: 'El mismo top, visto de atrás', category: 'deportivo', shape: 'tall', focus: '50% 40%' },
   { slug: 'remeras-running-tandil', title: 'Remeras para Otta Team', detail: '«Expectativa» y «realidad» para una carrera de trail en Tandil', category: 'equipos', shape: 'wide' },
+  { slug: 'almohadones-raton-perez', title: 'Almohadones del Ratón Pérez', detail: 'Con bolsillo para dejar el diente', category: 'personalizados', shape: 'wide' },
   { slug: 'conjunto-maniqui', title: 'Top, cuellito y manguitas', detail: 'Conjunto para entrenar al aire libre', category: 'deportivo', shape: 'tall', focus: '50% 35%' },
   { slug: 'remera-marea-fit', title: 'Remeras para Marea Fit', detail: 'Logo estampado sobre negro', category: 'equipos', shape: 'square', focus: '50% 45%' },
   { slug: 'cintas-medallas', title: 'Cintas de medallas', detail: 'Para la Copa Costa Atlántica', category: 'deportivo', shape: 'tall', focus: '50% 40%' },
+  { slug: 'remera-baby-shower', title: 'Remera para un baby shower', detail: 'Con el nombre del bebé', category: 'personalizados', shape: 'square', focus: '50% 45%' },
   { slug: 'tincho-trainer', title: 'Remera y gorra para un personal trainer', detail: 'La marca personal de Tincho', category: 'equipos', shape: 'square', focus: '50% 50%' },
   { slug: 'top-hojas', title: 'Top con hojas', detail: 'Estampa propia a todo color', category: 'deportivo', shape: 'tall', focus: '50% 40%' },
+  { slug: 'latas-yerba-azucar', title: 'Latas para yerba y azúcar', detail: 'Sublimadas con el nombre', category: 'personalizados', shape: 'tall', focus: '50% 60%' },
   { slug: 'running-15k', title: 'Listos para correr', detail: 'El equipo de Timón en los 15k de Mar del Plata', category: 'deportivo', shape: 'wide', focus: '45% 50%' },
   { slug: 'buzo-omega', title: 'Buzos para Omega Entrenamiento', detail: 'Estampa amarilla sobre negro', category: 'equipos', shape: 'square', focus: '50% 40%' },
   { slug: 'conjunto-negro', title: 'Top y biker negros', detail: 'Confección propia', category: 'deportivo', shape: 'tall', focus: '50% 30%' },
+  { slug: 'buzo-primer-grado', title: 'Buzo de egreso del jardín', detail: '«Nos vemos en primer grado», con el nombre', category: 'personalizados', shape: 'tall', focus: '50% 40%' },
   { slug: 'remera-keep-moving', title: 'Remeras para Keep Moving', detail: 'Dos logos para la marca', category: 'equipos', shape: 'square', focus: '50% 30%' },
   { slug: 'top-tropical-azul', title: 'Top hojas azules', detail: 'Otra estampa de la temporada', category: 'deportivo', shape: 'tall', focus: '50% 35%' },
   { slug: 'remera-kinesiologia', title: 'Remeras para Kinesiología Miramar', detail: 'Ropa de trabajo con la marca', category: 'equipos', shape: 'square', focus: '65% 30%' },
-  { slug: 'secador-soft-3d', title: 'Secador de soft', detail: 'Impreso en 3D en el taller', category: 'objetos', shape: 'tall', focus: '50% 60%' },
-  { slug: 'pastillero-3d', title: 'Pastillero para correr', detail: 'Impreso en 3D, con compartimentos y tapa a rosca', category: 'objetos', shape: 'square', focus: '45% 45%' },
+  { slug: 'secador-soft-3d', title: 'Secador de soft', detail: 'Impreso en 3D en el taller', category: '3d', shape: 'tall', focus: '50% 60%' },
+  { slug: 'pastillero-3d', title: 'Pastillero para correr', detail: 'Impreso en 3D, con compartimentos y tapa a rosca', category: '3d', shape: 'square', focus: '45% 45%' },
+  { slug: 'chapitas-mascotas', title: 'Chapitas para mascotas', detail: 'Con el nombre de cada uno', category: 'personalizados', shape: 'tall', focus: '50% 45%' },
+  { slug: 'taza-benja', title: 'Taza con nombre', detail: 'Un regalo con el sol de un lado y el nombre del otro', category: 'personalizados', shape: 'square' },
   { slug: 'cuellitos-surf', title: 'Cuellitos para The Crow Surf Shop', detail: 'Temporada 2025', category: 'deportivo', shape: 'tall', focus: '50% 40%' },
   { slug: 'remera-estudio-danza', title: 'Remeras para un estudio de danza', detail: 'Estudio homologado por la Fundación Julio Bocca', category: 'equipos', shape: 'tall', focus: '50% 35%' },
   { slug: 'tops-deportivos', title: 'Tops con estampa propia', detail: 'Diseño y confección propia', category: 'deportivo', shape: 'wide', focus: '50% 40%' },
@@ -94,13 +103,13 @@ export const WORKS: Work[] = [
   { slug: 'gorras-signal', title: 'Gorras para Signal', detail: 'Monitoreo de alarmas', category: 'gorras', shape: 'tall', focus: '50% 30%' },
   { slug: 'gorras-long-beach', title: 'Gorras para Long Beach', detail: 'Balneario de Miramar', category: 'gorras', shape: 'square' },
 
-  // Tazas, 3D y más
-  { slug: 'tazas-surf-trips', title: 'Tazas para Surf Trips', detail: '«Hasta la última ola»', category: 'objetos', shape: 'tall', focus: '50% 45%' },
-  { slug: 'tazas-storani', title: 'Tazas para Storani Techos', detail: 'Diseño envolvente', category: 'objetos', shape: 'square', focus: '50% 50%' },
-  { slug: 'tazas-beach-house', title: 'Tazas para AP Beach House', detail: 'Tazas personalizadas con el logo', category: 'objetos', shape: 'wide' },
-  { slug: 'funda-carry-on', title: 'Funda de carry on', detail: 'Para Vamos Bien Marketing Digital', category: 'objetos', shape: 'tall', focus: '50% 70%' },
+  // Personalizados
+  { slug: 'tazas-surf-trips', title: 'Tazas para Surf Trips', detail: '«Hasta la última ola»', category: 'personalizados', shape: 'tall', focus: '50% 45%' },
+  { slug: 'tazas-storani', title: 'Tazas para Storani Techos', detail: 'Diseño envolvente', category: 'personalizados', shape: 'square', focus: '50% 50%' },
+  { slug: 'tazas-beach-house', title: 'Tazas para AP Beach House', detail: 'Tazas personalizadas con el logo', category: 'personalizados', shape: 'wide' },
+  { slug: 'funda-carry-on', title: 'Funda de carry on', detail: 'Para Vamos Bien Marketing Digital', category: 'personalizados', shape: 'tall', focus: '50% 70%' },
 
-  // Locales y marcas
+  // Negocios y marcas
   { slug: 'cintas-flipper', title: 'Cintas para Balneario Flipper', detail: 'Con el logo repetido', category: 'locales', shape: 'tall', focus: '50% 45%' },
   { slug: 'bolsa-flipper', title: 'Bolsa para Balneario Flipper', detail: 'Logo sobre tela natural', category: 'locales', shape: 'square', focus: '50% 45%' },
   { slug: 'remeras-veterinaria', title: 'Remeras para Veterinaria Pehuén', detail: 'Ropa de trabajo con la marca del local', category: 'locales', shape: 'wide', focus: '50% 35%' },
