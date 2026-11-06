@@ -43,6 +43,11 @@ scripts/
   og-image.mjs            genera la imagen para compartir el link
 ```
 
+## Navegación e intro
+
+- Los enlaces internos son `<a href="#seccion">` normales, pero `src/lib/navigation.ts` intercepta el clic, hace el scroll descontando el header y no agrega `#` a la URL.
+- La animación de entrada (`src/components/Intro.tsx`) se muestra una vez por visita y nunca a quien tiene activado "reducir movimiento". Se saltea con un toque o una tecla.
+
 ## Cambios frecuentes
 
 - **Número de WhatsApp o Instagram:** `src/data/site.ts`.
@@ -56,7 +61,7 @@ scripts/
 ## Contenido
 
 - Todas las fotos y videos son trabajos reales: los publicados en [@timonsublimados](https://www.instagram.com/timonsublimados/) y los que mandó la clienta en noviembre de 2026 (carpeta `contenido nuevo/`, que no se sube al repo).
-- La foto de impresión 3D es un recorte de un video de Instagram y tiene poca resolución: conviene reemplazarla por una foto propia de las piezas 3D.
+- El video y las fotos de impresión 3D salen del reel de Instagram del 3/11/2026 (secador de soft, sujeta dorsales y pastilleros).
 - Se evitaron fotos con caras de chicos y productos con personajes de terceros (Disney, Pixar, etc.).
 - Los clientes listados son los que la marca etiquetó o agradeció públicamente en Instagram.
 - La historia del taller resume lo que Mariela contó en sus publicaciones.

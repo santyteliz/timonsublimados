@@ -2,6 +2,7 @@ import { AnimatePresence, motion, useReducedMotion } from 'motion/react'
 import { useEffect, useRef, useState, type KeyboardEvent } from 'react'
 import { SERVICES, type Service } from '../data/services'
 import { waLink } from '../data/site'
+import { NAV_EVENT } from '../lib/navigation'
 import { Wave } from './brand/Logo'
 import { WhatsAppIcon } from './brand/SocialIcons'
 import { Photo } from './ui/Photo'
@@ -57,20 +58,15 @@ export function Services() {
   const section = useRef<HTMLElement>(null)
   const current = SERVICES.find((s) => s.id === active) ?? SERVICES[0]
 
-  // Los enlaces #servicio-x del hero activan la pestaña correcta en escritorio.
+  // Los enlaces a un servicio (hero, footer) activan la pestaña correcta en escritorio.
   useEffect(() => {
-    const sync = () => {
-      const id = window.location.hash.replace('#servicio-', '')
-      if (!SERVICES.some((s) => s.id === id)) return
-      setActive(id)
-      if (window.matchMedia('(min-width: 1024px)').matches) {
-        section.current?.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' })
-      }
+    const onNav = (e: Event) => {
+      const id = String((e as CustomEvent<string>).detail).replace('servicio-', '')
+      if (SERVICES.some((s) => s.id === id)) setActive(id)
     }
-    sync()
-    window.addEventListener('hashchange', sync)
-    return () => window.removeEventListener('hashchange', sync)
-  }, [reduce])
+    window.addEventListener(NAV_EVENT, onNav)
+    return () => window.removeEventListener(NAV_EVENT, onNav)
+  }, [])
 
   const onKey = (e: KeyboardEvent, i: number) => {
     if (e.key !== 'ArrowDown' && e.key !== 'ArrowUp') return

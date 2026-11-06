@@ -29,6 +29,24 @@ export function Gallery() {
   const [expanded, setExpanded] = useState(false)
   const [open, setOpen] = useState<number | null>(null)
   const lastTrigger = useRef<HTMLButtonElement | null>(null)
+  const gridTop = useRef<HTMLDivElement>(null)
+
+  // Al cambiar de filtro la grilla puede achicarse mucho (Gorras tiene 5 fotos).
+  // Si el usuario estaba más abajo, la página quedaría en el footer: lo llevamos al inicio de la grilla.
+  const choose = (id: Category | 'todo', button?: HTMLElement) => {
+    // En celular la barra de filtros se desplaza de costado: centramos el botón elegido.
+    const bar = button?.parentElement
+    if (button && bar && bar.scrollWidth > bar.clientWidth) {
+      bar.scrollTo({ left: button.offsetLeft - (bar.clientWidth - button.offsetWidth) / 2, behavior: reduce ? 'instant' : 'smooth' })
+    }
+    if (id === filter) return
+    const el = gridTop.current
+    if (el) {
+      const top = el.getBoundingClientRect().top + window.scrollY - 150
+      if (window.scrollY > top) window.scrollTo({ top, behavior: reduce ? 'instant' : 'smooth' })
+    }
+    setFilter(id)
+  }
 
   const list = useMemo(() => (filter === 'todo' ? WORKS : WORKS.filter((w) => w.category === filter)), [filter])
   const visible = filter === 'todo' && !expanded ? list.slice(0, INITIAL) : list
@@ -59,7 +77,7 @@ export function Gallery() {
                 key={c.id}
                 type="button"
                 aria-pressed={on}
-                onClick={() => setFilter(c.id)}
+                onClick={(e) => choose(c.id, e.currentTarget)}
                 className={`inline-flex min-h-11 shrink-0 items-center gap-2 rounded-full px-5 text-[0.98rem] font-semibold transition-colors ${
                   on ? 'bg-ink text-cotton' : 'bg-mist text-ink hover:bg-ink/15'
                 }`}
@@ -71,7 +89,7 @@ export function Gallery() {
           })}
         </div>
 
-        <div className="@container mt-6">
+        <div ref={gridTop} className="@container mt-6">
         <ul
           className="gallery-grid grid grid-flow-dense gap-[var(--gap)] [--cols:2] [--gap:0.5rem] md:[--cols:3] md:[--gap:0.75rem] lg:[--cols:4] lg:[--gap:1rem]"
           style={{ gridTemplateColumns: 'repeat(var(--cols), minmax(0, 1fr))', gridAutoRows: 'calc((100cqw - (var(--cols) - 1) * var(--gap)) / var(--cols))' } as CSSProperties}

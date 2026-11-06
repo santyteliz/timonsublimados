@@ -19,7 +19,7 @@ const SLIDES: { slug: Work['slug']; label: string; focus?: string }[] = [
 const INTERVAL = 4200
 const ease = [0.22, 1, 0.36, 1] as const
 
-export function Hero() {
+export function Hero({ ready = true }: { ready?: boolean }) {
   const reduce = useReducedMotion()
   const [index, setIndex] = useState(0)
   const [paused, setPaused] = useState(false)
@@ -35,14 +35,16 @@ export function Hero() {
   }, [])
 
   useEffect(() => {
-    if (reduce || paused || !visible) return
+    if (reduce || paused || !visible || !ready) return
     const t = window.setTimeout(() => setIndex((i) => (i + 1) % SLIDES.length), INTERVAL)
     return () => window.clearTimeout(t)
-  }, [index, reduce, paused, visible])
+  }, [index, reduce, paused, visible, ready])
 
   const slide = SLIDES[index]
   const enter = (delay: number) =>
-    reduce ? {} : { initial: { opacity: 0, y: 40 }, animate: { opacity: 1, y: 0 }, transition: { duration: 0.9, delay, ease } }
+    reduce
+      ? {}
+      : { initial: { opacity: 0, y: 40 }, animate: ready ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }, transition: { duration: 0.9, delay, ease } }
 
   return (
     <section id="inicio" aria-labelledby="hero-title" className="relative overflow-hidden pt-28 md:pt-36">
@@ -81,7 +83,7 @@ export function Hero() {
         <motion.div
           className="relative mx-auto w-full max-w-[34rem] lg:col-span-5"
           initial={reduce ? false : { opacity: 0, scale: 0.92, rotate: -4 }}
-          animate={{ opacity: 1, scale: 1, rotate: 0 }}
+          animate={ready ? { opacity: 1, scale: 1, rotate: 0 } : { opacity: 0, scale: 0.92, rotate: -4 }}
           transition={{ duration: 1.2, delay: 0.2, ease }}
         >
           <div
@@ -163,7 +165,7 @@ export function Hero() {
       <motion.div
         className="mx-auto mt-14 max-w-[88rem] px-4 sm:px-6 md:mt-20 lg:px-10"
         initial={reduce ? false : { opacity: 0 }}
-        animate={{ opacity: 1 }}
+        animate={{ opacity: ready ? 1 : 0 }}
         transition={{ delay: 0.7, duration: 0.8 }}
       >
         <div className="flex items-center gap-4 border-t-2 border-ink pt-5 pb-6">

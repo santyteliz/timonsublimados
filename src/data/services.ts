@@ -67,6 +67,11 @@ export const SERVICES: Service[] = [
     items: ['Secadores de soft', 'Sujeta dorsales', 'Pastilleros', 'Piezas a medida'],
     tone: 'fucsia',
     photo: 'secador-soft-3d',
+    video: {
+      src: '/media/impresion-3d.mp4',
+      poster: '/media/impresion-3d.jpg',
+      label: 'Video: secador de soft, sujeta dorsales y pastilleros impresos en 3D',
+    },
     waMessage: '¡Hola! Quería consultar por un producto impreso en 3D.',
   },
   {
@@ -115,7 +120,7 @@ export const PRODUCTS: { name: string; photo?: Work['slug'] }[] = [
   { name: 'Banderas', photo: 'bandera-proservice' },
   { name: 'Secadores de soft', photo: 'secador-soft-3d' },
   { name: 'Sujeta dorsales' },
-  { name: 'Pastilleros' },
+  { name: 'Pastilleros', photo: 'pastillero-3d' },
 ]
 
 /** Marcas, clubes y eventos que aparecen en los trabajos de Timón (Instagram y fotos de la clienta). */
