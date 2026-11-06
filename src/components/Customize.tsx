@@ -4,14 +4,14 @@ import { waLink } from '../data/site'
 import { WhatsAppIcon } from './brand/SocialIcons'
 import { Reveal } from './ui/Reveal'
 
-const PRODUCTS = ['Remeras o buzos', 'Ropa deportiva', 'Gorras', 'Tazas o mates', 'Un regalo personalizado', 'Ploteo o cartelería', 'Otra cosa']
+const PRODUCTS = ['Ropa deportiva', 'Uniformes para mi equipo', 'Remeras o buzos', 'Gorras', 'Productos en 3D', 'Ploteo o banderas', 'Otra cosa']
 const QUANTITIES = ['Una sola', 'Entre 2 y 10', 'Entre 11 y 50', 'Más de 50']
 const DESIGN = ['Ya tengo el diseño', 'Tengo una idea o referencia', 'Necesito ayuda con el diseño']
 
 const STEPS = [
   { title: 'Contanos tu idea', text: 'Por WhatsApp, con una foto, un dibujo, un logo o una referencia que te guste.' },
   { title: 'Lo definimos juntos', text: 'Producto, técnica, colores, talles y cantidad.' },
-  { title: 'Lo hacemos en el taller', text: 'Diseño, impresión, plancha y costura, todo acá.' },
+  { title: 'Lo hacemos en el taller', text: 'Diseño, impresión, plancha, costura e impresión 3D, todo acá.' },
   { title: 'Lo pedís, lo tenés', text: 'Coordinamos por WhatsApp para que lo retires en Miramar.' },
 ]
 

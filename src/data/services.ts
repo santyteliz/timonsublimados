@@ -3,7 +3,7 @@ import type { Work } from './works'
 export type Service = {
   id: string
   name: string
-  /** Frase corta que aparece al lado del nombre en el índice */
+  /** Frase corta que aparece arriba del nombre */
   hook: string
   body: string
   items: string[]
@@ -16,14 +16,25 @@ export type Service = {
 
 export const SERVICES: Service[] = [
   {
+    id: 'deportivo',
+    name: 'Ropa deportiva',
+    hook: 'Hecha por gente que entrena',
+    body:
+      'Tops, bikers, mallas, cuellitos, manguitas y cinturones de hidratación, con estampas propias o con la marca de tu equipo. Los cortamos, los estampamos y los cosemos en el taller.',
+    items: ['Tops y bikers', 'Mallas', 'Cuellitos y manguitas', 'Musculosas', 'Cinturones de hidratación', 'Uniformes de equipo'],
+    tone: 'mar',
+    photo: 'top-tropical-frente',
+    waMessage: '¡Hola! Quería consultar por ropa deportiva.',
+  },
+  {
     id: 'sublimacion',
     name: 'Sublimación',
     hook: 'Color que no se va',
     body:
-      'Imprimimos tu diseño en papel de sublimación y lo pasamos con la plancha. La tinta queda dentro de la tela o de la pieza, por eso los colores salen vivos y aguantan el uso.',
-    items: ['Tazas y jarros', 'Mates y botellas', 'Mouse pads', 'Fundas de carry on', 'Almohadones', 'Llaveros', 'Ropa deportiva'],
-    tone: 'mar',
-    photo: 'automates-tropicales',
+      'Imprimimos tu diseño en papel de sublimación y lo pasamos con la plancha. La tinta queda dentro de la tela, por eso los colores salen vivos y aguantan el entrenamiento y los lavados.',
+    items: ['Ropa deportiva', 'Cintas de medallas', 'Uniformes', 'Gorras', 'Tazas', 'Banderas'],
+    tone: 'sol',
+    photo: 'tops-planos',
     video: {
       src: '/media/proceso-sublimacion.mp4',
       poster: '/media/proceso-sublimacion.jpg',
@@ -37,37 +48,26 @@ export const SERVICES: Service[] = [
     hook: 'DTF, serigrafía y vinilo',
     body:
       'Elegimos la técnica según la prenda y el diseño. Con DTF estampamos algodón, jean y gabardina, en telas claras y oscuras. La serigrafía la aprendimos en casa y la seguimos haciendo a la antigua.',
-    items: ['Remeras', 'Buzos y canguros', 'Bolsas', 'Gorras', 'Ropa de trabajo', 'Uniformes'],
-    tone: 'sol',
-    photo: 'remeras-johnnys',
+    items: ['Remeras', 'Buzos y camperas', 'Ropa de equipo', 'Ropa de trabajo', 'Gorras', 'Bolsas'],
+    tone: 'menta',
+    photo: 'buzo-urban',
     video: {
-      src: '/media/proceso-dtf.mp4',
-      poster: '/media/proceso-dtf.jpg',
-      label: 'Video: estampado DTF sobre una remera negra',
+      src: '/media/estampado-urban.mp4',
+      poster: '/media/estampado-urban.jpg',
+      label: 'Video: buzos estampados para Urban Team Training',
     },
     waMessage: '¡Hola! Quería consultar por estampado de remeras o buzos.',
   },
   {
-    id: 'ploteos',
-    name: 'Ploteos',
-    hook: 'Tu marca, a la vista',
+    id: 'impresion-3d',
+    name: 'Impresión 3D',
+    hook: 'Nuevo en el taller',
     body:
-      'Vestimos locales y eventos: vidrieras ploteadas, carteles de lona, fly banners e identificación para que tu negocio se vea desde la vereda.',
-    items: ['Vidrieras', 'Carteles de lona', 'Fly banners', 'Identificaciones', 'Vinilo de corte'],
-    tone: 'menta',
-    photo: 'fly-banner-veterinaria',
-    waMessage: '¡Hola! Quería consultar por ploteo y cartelería para mi local.',
-  },
-  {
-    id: 'personalizacion',
-    name: 'Personalización',
-    hook: 'Con nombre y apellido',
-    body:
-      'Regalos de cumpleaños, el Día de la Madre, egresados, la vuelta al cole o tu mascota. Hacemos piezas únicas con el nombre, la foto o el detalle que lo vuelve tuyo.',
-    items: ['Etiquetas para ropa', 'Mochilas de tela', 'Chapitas para mascotas', 'Kits materos', 'Regalos de cumpleaños'],
+      'Diseñamos e imprimimos piezas en 3D. Empezamos por lo que nos faltaba para correr: secadores de soft, sujeta dorsales y pastilleros. Si tenés otra idea, la hacemos a tu medida.',
+    items: ['Secadores de soft', 'Sujeta dorsales', 'Pastilleros', 'Piezas a medida'],
     tone: 'fucsia',
-    photo: 'chapitas-mascotas',
-    waMessage: '¡Hola! Quería hacer un regalo personalizado.',
+    photo: 'secador-soft-3d',
+    waMessage: '¡Hola! Quería consultar por un producto impreso en 3D.',
   },
   {
     id: 'diseno',
@@ -81,62 +81,68 @@ export const SERVICES: Service[] = [
     waMessage: '¡Hola! Tengo una idea y necesito ayuda con el diseño.',
   },
   {
-    id: 'confeccion',
-    name: 'Corte y confección',
-    hook: 'Cosido en el taller',
+    id: 'ploteos',
+    name: 'Ploteos',
+    hook: 'Tu marca, a la vista',
     body:
-      'No solo estampamos: también cortamos y cosemos. Nuestras mallas, tops y cuellitos se estampan y se arman acá, y podemos hacer tu modelo personalizado.',
-    items: ['Tops deportivos', 'Mallas', 'Cuellitos y manguitas', 'Bikers y polainas', 'Cinturones de hidratación', 'Delantales'],
+      'Vestimos locales y eventos: vidrieras ploteadas, banderas, carteles de lona e identificación para que tu negocio se vea desde la vereda.',
+    items: ['Vidrieras', 'Banderas', 'Carteles de lona', 'Identificaciones', 'Vinilo de corte'],
     tone: 'mist',
-    photo: 'top-manguitas',
-    waMessage: '¡Hola! Quería consultar por confección de indumentaria.',
+    photo: 'bandera-farmacia-acha',
+    waMessage: '¡Hola! Quería consultar por ploteo y cartelería para mi local.',
   },
 ]
 
-/** Lo que más se pide, para la lista tipográfica. */
+/** Lo que sale del taller hoy, para la lista tipográfica. */
 export const PRODUCTS: { name: string; photo?: Work['slug'] }[] = [
-  { name: 'Remeras', photo: 'remera-cacho' },
-  { name: 'Buzos', photo: 'buzo-cacho' },
-  { name: 'Gorras', photo: 'gorras-mates-gold' },
-  { name: 'Tops', photo: 'tops-deportivos' },
+  { name: 'Tops', photo: 'top-tropical-espalda' },
+  { name: 'Bikers', photo: 'conjunto-negro' },
   { name: 'Mallas', photo: 'malla-tropical' },
   { name: 'Cuellitos', photo: 'cuellitos-surf' },
-  { name: 'Manguitas', photo: 'top-manguitas' },
-  { name: 'Tazas', photo: 'tazas-beach-house' },
-  { name: 'Mates', photo: 'mates-tropicales' },
-  { name: 'Jarros térmicos', photo: 'tazas-rugby' },
-  { name: 'Automates', photo: 'automates-tropicales' },
-  { name: 'Llaveros', photo: 'llaveros-banderas' },
-  { name: 'Fundas de carry on', photo: 'funda-carry-on' },
-  { name: 'Mouse pads' },
-  { name: 'Bolsas', photo: 'bolsas-magic-wash' },
-  { name: 'Delantales', photo: 'delantal-tropical' },
-  { name: 'Almohadillas de semillas', photo: 'almohadillas-semillas' },
-  { name: 'Colchonetas para mascotas', photo: 'colchonetas-mascotas' },
-  { name: 'Chapitas', photo: 'chapitas-mascotas' },
+  { name: 'Manguitas', photo: 'conjunto-maniqui' },
+  { name: 'Musculosas', photo: 'uniforme-parroquial' },
+  { name: 'Remeras de running', photo: 'remeras-running-tandil' },
   { name: 'Cinturones de hidratación', photo: 'cinturon-hidratacion' },
-  { name: 'Fly banners', photo: 'fly-banner-veterinaria' },
-  { name: 'Uniformes', photo: 'remeras-veterinaria' },
+  { name: 'Cintas de medallas', photo: 'cintas-medallas' },
+  { name: 'Uniformes de equipo', photo: 'conjunto-omega' },
+  { name: 'Buzos', photo: 'buzo-urban' },
+  { name: 'Remeras', photo: 'remera-la-astral' },
+  { name: 'Gorras', photo: 'gorra-playa-sublimada' },
+  { name: 'Ropa de trabajo', photo: 'remera-kinesiologia' },
+  { name: 'Tazas', photo: 'tazas-surf-trips' },
+  { name: 'Fundas de carry on', photo: 'funda-carry-on' },
+  { name: 'Bolsas', photo: 'bolsa-flipper' },
+  { name: 'Banderas', photo: 'bandera-proservice' },
+  { name: 'Secadores de soft', photo: 'secador-soft-3d' },
+  { name: 'Sujeta dorsales' },
+  { name: 'Pastilleros' },
 ]
 
-/** Marcas, clubes y eventos que Timón etiquetó o agradeció públicamente en Instagram. */
+/** Marcas, clubes y eventos que aparecen en los trabajos de Timón (Instagram y fotos de la clienta). */
 export const CLIENTS = [
+  'Urban Team Training',
+  'Omega Entrenamiento',
+  'CVD Fitness Club',
+  'Marea Fit',
+  'Keep Moving',
+  'Otta Team',
+  'Parroquial',
   'Ritmos en Acción',
+  'Kinesiología Miramar',
+  'Miramar Rugby Club',
+  'The Crow Surf Shop',
   'Balneario Playa Beira',
   'Long Beach Miramar',
+  'Entre Escolleras',
+  'Balneario Flipper',
   'Balneario Cacho',
-  'Miramar III',
-  'Miramar Rugby Club',
-  'Veterinaria Pehuén',
+  'Farmacia Acha',
+  'La Astral Pizzería',
+  'Dínamo Producciones',
+  'Popeye',
+  'Fortia',
   'Vamos Bien Marketing',
-  'The Crow Surf Shop',
   'Mates Gold',
-  'Signal',
-  'Dicioto Pizzas',
-  'Johnny’s',
-  'Menéndez Pinturería',
-  'Rallycross Miramar',
-  'Omega Entrenamiento',
-  'Magic Wash',
-  'Colegio San Andrés',
+  'Veterinaria Pehuén',
+  'Rescate Fauna Marina Miramar',
 ]

@@ -45,7 +45,7 @@ function Detail({ s, headingLevel = 'h3' }: { s: Service; headingLevel?: 'h3' | 
         className={`mt-8 inline-flex min-h-13 items-center gap-2.5 self-start rounded-full px-6 font-semibold transition-colors lg:mt-auto ${t.button} ${t.dark ? 'on-dark' : ''}`}
       >
         <WhatsAppIcon className="size-5" />
-        Consultar por {s.name.toLowerCase()}
+        Consultar por {s.name.charAt(0).toLowerCase() + s.name.slice(1)}
       </a>
     </div>
   )
@@ -88,8 +88,8 @@ export function Services() {
             Seis oficios, un mismo taller
           </h2>
           <p className="max-w-[30rem] text-[1.15rem] leading-relaxed text-ink-soft text-pretty lg:col-span-5 lg:justify-self-end">
-            Del diseño a la plancha y de la plancha a la máquina de coser. Así podemos resolver un regalo único o la
-            ropa de todo tu equipo en un solo lugar.
+            Del diseño a la plancha y de la plancha a la máquina de coser. Así resolvemos la ropa de tu equipo, tu gimnasio
+            o tu marca en un solo lugar.
           </p>
         </Reveal>
 

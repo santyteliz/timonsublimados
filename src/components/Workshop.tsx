@@ -9,16 +9,16 @@ const REASONS = [
     text: 'Diseñamos, imprimimos, estampamos y cosemos en el taller, así que seguimos tu pedido de principio a fin.',
   },
   {
-    title: 'La técnica justa para cada tela',
-    text: 'Sublimación, DTF, serigrafía y vinilo. Elegimos según la prenda, el diseño y la cantidad que necesitás.',
+    title: 'La técnica justa para cada pieza',
+    text: 'Sublimación, DTF, serigrafía, vinilo e impresión 3D. Elegimos según la prenda, el diseño y la cantidad que necesitás.',
   },
   {
     title: 'Ropa deportiva hecha por gente que entrena',
     text: 'Mariela es profe de Educación Física y en el taller corremos. Los tops, cuellitos y cinturones de hidratación los usamos en nuestras propias carreras.',
   },
   {
-    title: 'De una unidad a todo el equipo',
-    text: 'Hacemos el regalo de cumpleaños para una sola persona y también la ropa de clubes, escuelas, balnearios y empresas.',
+    title: 'Para tu equipo, tu gimnasio o tu marca',
+    text: 'Hacemos la ropa de equipos de running, gimnasios, clubes, escuelas de danza, balnearios y empresas de Miramar y la zona.',
   },
   {
     title: 'Un taller de Miramar',

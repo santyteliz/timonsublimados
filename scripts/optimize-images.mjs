@@ -1,13 +1,14 @@
 // Genera versiones WebP optimizadas de las fotos seleccionadas de Instagram.
 // Uso: npm run images
 import sharp from 'sharp'
-import { readdirSync, mkdirSync, writeFileSync } from 'node:fs'
+import { readdirSync, mkdirSync, writeFileSync, rmSync } from 'node:fs'
 import { join, basename } from 'node:path'
 
 const SRC = 'assets-source/instagram/seleccion'
 const OUT = 'public/img/works'
 const WIDTHS = [480, 960, 1440]
 
+rmSync(OUT, { recursive: true, force: true })
 mkdirSync(OUT, { recursive: true })
 const meta = {}
 
@@ -16,8 +17,10 @@ for (const file of readdirSync(SRC).filter((f) => f.endsWith('.jpg'))) {
   const input = sharp(join(SRC, file))
   const { width, height } = await input.metadata()
   meta[slug] = { w: width, h: height }
-  for (const w of WIDTHS) {
-    if (w > width && w !== WIDTHS[0]) continue
+  // Cada tamaño se genera si la foto es más grande que el tamaño anterior.
+  // Si es más chica que el tamaño pedido, se guarda en su ancho original.
+  for (const [i, w] of WIDTHS.entries()) {
+    if (i > 0 && width <= WIDTHS[i - 1]) continue
     await sharp(join(SRC, file))
       .resize({ width: Math.min(w, width), withoutEnlargement: true })
       .webp({ quality: 74, effort: 5 })

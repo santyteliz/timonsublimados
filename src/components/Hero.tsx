@@ -8,12 +8,12 @@ import { ButtonLink } from './ui/Button'
 import { Photo } from './ui/Photo'
 
 const SLIDES: { slug: Work['slug']; label: string; focus?: string }[] = [
-  { slug: 'tops-deportivos', label: 'Tops deportivos con estampa propia', focus: '50% 40%' },
-  { slug: 'automates-tropicales', label: 'Automates sublimados' },
-  { slug: 'gorras-mates-gold', label: 'Gorras para Mates Gold' },
-  { slug: 'estampas-propias', label: 'Estampas diseñadas en el taller' },
-  { slug: 'funda-carry-on', label: 'Funda de carry on personalizada', focus: '50% 65%' },
-  { slug: 'remera-cacho', label: 'Remeras para Balneario Cacho' },
+  { slug: 'top-tropical-frente', label: 'Tops deportivos con estampa propia', focus: '50% 28%' },
+  { slug: 'buzo-urban', label: 'Buzos para Urban Team Training', focus: '50% 30%' },
+  { slug: 'conjunto-omega', label: 'Top y biker para Omega Entrenamiento', focus: '50% 40%' },
+  { slug: 'kit-running-argentina', label: 'Kit de carrera con la misma estampa', focus: '50% 40%' },
+  { slug: 'top-tropical-espalda', label: 'Espalda nadadora, confección propia', focus: '50% 35%' },
+  { slug: 'remera-cvd', label: 'Remeras para CVD Fitness Club', focus: '50% 45%' },
 ]
 
 const INTERVAL = 4200
@@ -65,8 +65,8 @@ export function Hero() {
             className="mt-6 max-w-[34rem] text-[1.15rem] leading-relaxed text-ink-soft text-pretty md:mt-8 md:text-[1.3rem]"
             {...enter(0.32)}
           >
-            Sublimamos, estampamos, ploteamos y cosemos en nuestro taller de Miramar. Remeras, gorras, tazas, ropa
-            deportiva y lo que se te ocurra, con tu diseño o con uno nuestro.
+            Ropa deportiva, uniformes para tu equipo y prendas con tu marca. Sublimamos, estampamos, cosemos e
+            imprimimos en 3D en nuestro taller de Miramar.
           </motion.p>
 
           <motion.div className="mt-8 flex flex-col gap-3 xs:flex-row md:mt-10" {...enter(0.42)}>

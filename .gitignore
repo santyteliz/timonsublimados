@@ -25,3 +25,6 @@ dist-ssr
 
 # Configuración local de Claude Code
 .claude/
+
+# Material crudo que manda la clienta (lo usado se copia a assets-source)
+contenido nuevo/

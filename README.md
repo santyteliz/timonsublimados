@@ -1,6 +1,6 @@
 # Timón Sublimados — sitio web
 
-Sitio de una sola página para Timón Sublimados (Miramar, Buenos Aires): sublimación, estampados, ploteos, personalizados, diseño y corte y confección de indumentaria.
+Sitio de una sola página para Timón Sublimados (Miramar, Buenos Aires): ropa deportiva y uniformes, sublimación, estampados, impresión 3D, diseño y ploteos.
 
 React 19 + TypeScript + Tailwind CSS 4 + Motion + Lucide. Sin backend: todas las consultas salen por WhatsApp con el mensaje ya escrito.
 
@@ -36,6 +36,7 @@ public/
 assets-source/
   logo/logo-timon.pdf     logo original
   instagram/seleccion/    fotos originales usadas en la web (con nombre descriptivo)
+  contenido-nuevo.json    de qué archivo de la carpeta "contenido nuevo" salió cada foto nueva
   instagram/archivo/      todas las fotos descargadas del Instagram (218), por código de publicación
 scripts/
   optimize-images.mjs     genera las WebP y image-meta.json
@@ -54,7 +55,8 @@ scripts/
 
 ## Contenido
 
-- Todas las fotos y videos son trabajos reales publicados en [@timonsublimados](https://www.instagram.com/timonsublimados/).
+- Todas las fotos y videos son trabajos reales: los publicados en [@timonsublimados](https://www.instagram.com/timonsublimados/) y los que mandó la clienta en noviembre de 2026 (carpeta `contenido nuevo/`, que no se sube al repo).
+- La foto de impresión 3D es un recorte de un video de Instagram y tiene poca resolución: conviene reemplazarla por una foto propia de las piezas 3D.
 - Se evitaron fotos con caras de chicos y productos con personajes de terceros (Disney, Pixar, etc.).
 - Los clientes listados son los que la marca etiquetó o agradeció públicamente en Instagram.
 - La historia del taller resume lo que Mariela contó en sus publicaciones.
