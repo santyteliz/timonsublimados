@@ -101,8 +101,6 @@ export const WORKS: Work[] = [
   { slug: 'funda-carry-on', title: 'Funda de carry on', detail: 'Para Vamos Bien Marketing Digital', category: 'objetos', shape: 'tall', focus: '50% 70%' },
 
   // Locales y marcas
-  { slug: 'bandera-farmacia-acha', title: 'Bandera para Farmacia Acha', detail: 'Impresa a todo color con los datos del local', category: 'locales', shape: 'tall', focus: '50% 25%' },
-  { slug: 'bandera-proservice', title: 'Bandera para Proservice', detail: 'Logo a todo color', category: 'locales', shape: 'square', focus: '50% 25%' },
   { slug: 'cintas-flipper', title: 'Cintas para Balneario Flipper', detail: 'Con el logo repetido', category: 'locales', shape: 'tall', focus: '50% 45%' },
   { slug: 'bolsa-flipper', title: 'Bolsa para Balneario Flipper', detail: 'Logo sobre tela natural', category: 'locales', shape: 'square', focus: '50% 45%' },
   { slug: 'remeras-veterinaria', title: 'Remeras para Veterinaria Pehuén', detail: 'Ropa de trabajo con la marca del local', category: 'locales', shape: 'wide', focus: '50% 35%' },

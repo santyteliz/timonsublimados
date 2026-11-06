@@ -20,7 +20,7 @@ const TONES: Record<Service['tone'], { panel: string; dark: boolean; button: str
 
 function Media({ s, sizes, className = '' }: { s: Service; sizes: string; className?: string }) {
   if (s.video) return <ProcessVideo {...s.video} className={className} />
-  return <Photo slug={s.photo} alt={`${s.name}: trabajo realizado en el taller`} sizes={sizes} className={`size-full ${className}`} />
+  return <Photo slug={s.photo} alt={`${s.name}: trabajo realizado en el taller`} sizes={sizes} focus={s.focus} className={`size-full ${className}`} />
 }
 
 function Detail({ s, headingLevel = 'h3' }: { s: Service; headingLevel?: 'h3' | 'p' }) {

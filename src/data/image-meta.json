@@ -1,14 +1,4 @@
 {
-  "bandera-farmacia-acha": {
-    "w": 900,
-    "h": 1600,
-    "color": "rgb(136 136 136)"
-  },
-  "bandera-proservice": {
-    "w": 900,
-    "h": 1600,
-    "color": "rgb(168 168 168)"
-  },
   "bolsa-flipper": {
     "w": 1148,
     "h": 1477,
@@ -153,6 +143,11 @@
     "w": 720,
     "h": 900,
     "color": "rgb(200 216 216)"
+  },
+  "plotter-de-corte": {
+    "w": 900,
+    "h": 510,
+    "color": "rgb(232 232 232)"
   },
   "remera-cacho": {
     "w": 1440,

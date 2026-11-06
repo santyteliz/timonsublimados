@@ -10,6 +10,8 @@ export type Service = {
   /** Color de "tela" del panel */
   tone: 'mar' | 'sol' | 'fucsia' | 'menta' | 'ink' | 'mist'
   photo: Work['slug']
+  /** Posición del recorte de la foto (object-position) */
+  focus?: string
   video?: { src: string; poster: string; label: string }
   waMessage: string
 }
@@ -32,7 +34,7 @@ export const SERVICES: Service[] = [
     hook: 'Color que no se va',
     body:
       'Imprimimos tu diseño en papel de sublimación y lo pasamos con la plancha. La tinta queda dentro de la tela, por eso los colores salen vivos y aguantan el entrenamiento y los lavados.',
-    items: ['Ropa deportiva', 'Cintas de medallas', 'Uniformes', 'Gorras', 'Tazas', 'Banderas'],
+    items: ['Ropa deportiva', 'Cintas de medallas', 'Uniformes', 'Cuellitos', 'Gorras', 'Tazas'],
     tone: 'sol',
     photo: 'tops-planos',
     video: {
@@ -90,10 +92,11 @@ export const SERVICES: Service[] = [
     name: 'Ploteos',
     hook: 'Tu marca, a la vista',
     body:
-      'Vestimos locales y eventos: vidrieras ploteadas, banderas, carteles de lona e identificación para que tu negocio se vea desde la vereda.',
-    items: ['Vidrieras', 'Banderas', 'Carteles de lona', 'Identificaciones', 'Vinilo de corte'],
+      'Con el plotter de corte hacemos vidrieras, carteles de lona, vinilos e identificación para que tu negocio se vea desde la vereda.',
+    items: ['Vidrieras', 'Carteles de lona', 'Identificaciones', 'Vinilo de corte'],
     tone: 'mist',
-    photo: 'bandera-farmacia-acha',
+    photo: 'plotter-de-corte',
+    focus: '62% 50%',
     waMessage: '¡Hola! Quería consultar por ploteo y cartelería para mi local.',
   },
 ]
@@ -117,7 +120,6 @@ export const PRODUCTS: { name: string; photo?: Work['slug'] }[] = [
   { name: 'Tazas', photo: 'tazas-surf-trips' },
   { name: 'Fundas de carry on', photo: 'funda-carry-on' },
   { name: 'Bolsas', photo: 'bolsa-flipper' },
-  { name: 'Banderas', photo: 'bandera-proservice' },
   { name: 'Secadores de soft', photo: 'secador-soft-3d' },
   { name: 'Sujeta dorsales' },
   { name: 'Pastilleros', photo: 'pastillero-3d' },
@@ -141,7 +143,6 @@ export const CLIENTS = [
   'Entre Escolleras',
   'Balneario Flipper',
   'Balneario Cacho',
-  'Farmacia Acha',
   'La Astral Pizzería',
   'Dínamo Producciones',
   'Popeye',

@@ -4,7 +4,7 @@ import { waLink } from '../data/site'
 import { WhatsAppIcon } from './brand/SocialIcons'
 import { Reveal } from './ui/Reveal'
 
-const PRODUCTS = ['Ropa deportiva', 'Uniformes para mi equipo', 'Remeras o buzos', 'Gorras', 'Productos en 3D', 'Ploteo o banderas', 'Otra cosa']
+const PRODUCTS = ['Ropa deportiva', 'Uniformes para mi equipo', 'Remeras o buzos', 'Gorras', 'Productos en 3D', 'Ploteo o cartelería', 'Otra cosa']
 const QUANTITIES = ['Una sola', 'Entre 2 y 10', 'Entre 11 y 50', 'Más de 50']
 const DESIGN = ['Ya tengo el diseño', 'Tengo una idea o referencia', 'Necesito ayuda con el diseño']
 
