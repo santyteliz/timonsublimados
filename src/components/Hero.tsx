@@ -14,7 +14,6 @@ const SLIDES: { slug: Work['slug']; label: string; focus?: string }[] = [
   { slug: 'tazas-nombre', label: 'Tazas personalizadas con nombre', focus: '50% 50%' },
   { slug: 'kit-running-argentina', label: 'Kit de carrera con la misma estampa', focus: '50% 40%' },
   { slug: 'top-tropical-espalda', label: 'Espalda nadadora, confección propia', focus: '50% 35%' },
-  { slug: 'mates-sublimados', label: 'Mates sublimados', focus: '50% 55%' },
   { slug: 'remera-cvd', label: 'Remeras para CVD Fitness Club', focus: '50% 45%' },
 ]
 
@@ -126,7 +125,7 @@ export function Hero({ ready = true }: { ready?: boolean }) {
             </span>
           </div>
 
-          <div className="mt-5 flex items-center justify-between gap-4">
+          <div className="mt-5 flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
             <p className="min-h-[1.5em] text-[0.98rem] font-medium" aria-live="polite">
               <AnimatePresence mode="wait" initial={false}>
                 <motion.span
@@ -141,7 +140,7 @@ export function Hero({ ready = true }: { ready?: boolean }) {
                 </motion.span>
               </AnimatePresence>
             </p>
-            <div className="flex shrink-0 items-center gap-1" role="group" aria-label="Elegir trabajo">
+            <div className="-ml-2.5 flex shrink-0 items-center gap-0.5 sm:ml-0" role="group" aria-label="Elegir trabajo">
               {SLIDES.map((s, i) => (
                 <button
                   key={s.slug}

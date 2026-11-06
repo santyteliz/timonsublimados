@@ -7,7 +7,7 @@ import { Wave } from './brand/Logo'
 import { WhatsAppIcon } from './brand/SocialIcons'
 import { Photo } from './ui/Photo'
 import { ProcessVideo } from './ui/ProcessVideo'
-import { Reveal } from './ui/Reveal'
+import { Reveal, Rise, Unveil } from './ui/Reveal'
 
 const TONES: Record<Service['tone'], { panel: string; dark: boolean; button: string }> = {
   mar: { panel: 'bg-mar text-cotton', dark: true, button: 'bg-cotton text-ink hover:bg-sol' },
@@ -81,7 +81,7 @@ export function Services() {
       <div className="mx-auto max-w-[88rem] px-4 sm:px-6 lg:px-10">
         <Reveal className="grid gap-6 lg:grid-cols-12 lg:items-end">
           <h2 id="servicios-title" className="display text-[clamp(3rem,8vw,6.5rem)] lg:col-span-7">
-            Seis maneras de personalizar, un mismo taller
+            <Rise>Seis maneras de personalizar, un mismo taller</Rise>
           </h2>
           <p className="max-w-[30rem] text-[1.15rem] leading-relaxed text-ink-soft text-pretty lg:col-span-5 lg:justify-self-end">
             Del diseño a la plancha y de la plancha a la máquina de coser. Así resolvemos la ropa de tu equipo, los
@@ -157,11 +157,9 @@ export function Services() {
                 id={`servicio-${s.id}`}
                 className={`grid gap-6 overflow-hidden rounded-[1.75rem] p-4 pb-7 sm:p-6 md:grid-cols-2 md:gap-8 ${TONES[s.tone].panel}`}
               >
-                <Media
-                  s={s}
-                  sizes="(min-width: 768px) 45vw, 92vw"
-                  className={`rounded-[1.2rem] ${s.video ? 'aspect-[4/5]' : i % 2 ? 'aspect-[5/4] md:aspect-[4/5]' : 'aspect-square md:aspect-[4/5]'}`}
-                />
+                <Unveil className={s.video ? 'aspect-[4/5]' : i % 2 ? 'aspect-[5/4] md:aspect-[4/5]' : 'aspect-square md:aspect-[4/5]'}>
+                  <Media s={s} sizes="(min-width: 768px) 45vw, 92vw" className="size-full" />
+                </Unveil>
                 <div className="px-1 md:py-2">
                   <Detail s={s} />
                 </div>

@@ -2,7 +2,7 @@ import { useId, useMemo, useState, type FormEvent, type ReactNode } from 'react'
 import { Check } from 'lucide-react'
 import { waLink } from '../data/site'
 import { WhatsAppIcon } from './brand/SocialIcons'
-import { Reveal } from './ui/Reveal'
+import { Reveal, Rise } from './ui/Reveal'
 
 const PRODUCTS = [
   'Ropa deportiva',
@@ -45,7 +45,7 @@ function Choice({
           return (
             <label
               key={o}
-              className={`relative inline-flex min-h-11 cursor-pointer items-center gap-1.5 rounded-full px-4 text-[0.98rem] font-medium transition-colors has-[:focus-visible]:outline-3 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-mar ${
+              className={`relative inline-flex min-h-11 cursor-pointer items-center gap-1.5 rounded-full px-4 text-[0.98rem] font-medium transition-[background-color,color,transform] duration-200 active:scale-[0.96] has-[:focus-visible]:outline-3 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-mar ${
                 on ? 'bg-ink text-cotton' : 'bg-mist text-ink hover:bg-ink/15'
               }`}
             >
@@ -109,7 +109,7 @@ export function Customize() {
         <div className="lg:col-span-5">
           <Reveal>
             <h2 id="personaliza-title" className="display text-[clamp(3rem,7.4vw,6rem)]">
-              ¿Lo imaginaste? Podemos hacerlo realidad.
+              <Rise>¿Lo imaginaste? Podemos hacerlo realidad.</Rise>
             </h2>
             <p className="mt-6 max-w-[30rem] text-[1.15rem] leading-relaxed text-cotton/75 text-pretty">
               Traé una idea, un diseño o una foto de algo que viste. Armamos tu consulta acá y te llega lista a

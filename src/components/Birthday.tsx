@@ -1,11 +1,11 @@
-import { motion, useReducedMotion } from 'motion/react'
+import { AnimatePresence, motion, useReducedMotion } from 'motion/react'
 import { Cake, Check, Flag, Gift, PartyPopper, Shirt, type LucideIcon } from 'lucide-react'
 import { useMemo, useState, type FormEvent, type ReactNode } from 'react'
 import { waLink } from '../data/site'
 import type { Work } from '../data/works'
 import { WhatsAppIcon } from './brand/SocialIcons'
 import { Photo } from './ui/Photo'
-import { Reveal } from './ui/Reveal'
+import { Reveal, Rise, Unveil } from './ui/Reveal'
 
 type Item = { id: string; label: string; text: string; icon: LucideIcon; message: string }
 
@@ -14,12 +14,12 @@ const ITEMS: Item[] = [
   { id: 'banderines', label: 'Banderines', text: 'Con el nombre, para colgar en la mesa o en la pared.', icon: Flag, message: 'banderines' },
   { id: 'torta', label: 'Decoración de la torta', text: 'Adornos con la temática que elijas.', icon: Cake, message: 'decoración de la torta' },
   { id: 'deco', label: 'Decoración', text: 'Para la mesa dulce y el salón.', icon: PartyPopper, message: 'decoración' },
-  { id: 'souvenirs', label: 'Souvenirs', text: 'Tazas, mates o latas con el nombre de cada invitado.', icon: Gift, message: 'souvenirs' },
+  { id: 'souvenirs', label: 'Souvenirs', text: 'Tazas, latas o lo que imagines, con el nombre de cada invitado.', icon: Gift, message: 'souvenirs' },
 ]
 
 const PHOTOS: { slug: Work['slug']; alt: string; className: string }[] = [
   { slug: 'tazas-nombre', alt: 'Tazas sublimadas, cada una con un nombre distinto', className: 'col-span-2 aspect-[16/10]' },
-  { slug: 'mates-sublimados', alt: 'Mates sublimados con diseños de hojas y tortugas', className: 'aspect-square' },
+  { slug: 'remera-baby-shower', alt: 'Remera para un baby shower con el nombre Benicio', className: 'aspect-square' },
   { slug: 'taza-benja', alt: 'Taza con el nombre Benja de un lado y el sol del otro', className: 'aspect-square' },
 ]
 
@@ -108,7 +108,7 @@ export function Birthday() {
           <Reveal>
             <p className="text-[1.05rem] font-semibold text-fucsia">Cumpleaños, baby showers y egresos</p>
             <h2 id="cumple-title" className="display mt-2 text-[clamp(3.4rem,9vw,7rem)]">
-              Armá tu cumple
+              <Rise>Armá tu cumple</Rise>
             </h2>
             <p className="mt-6 max-w-[30rem] text-[1.15rem] leading-relaxed text-ink-soft text-pretty">
               La remera del cumpleañero, los banderines, la decoración de la torta y los souvenirs, todo con la misma
@@ -116,17 +116,13 @@ export function Birthday() {
             </p>
           </Reveal>
 
-          <Reveal className="mt-10 grid grid-cols-2 gap-3" delay={0.1}>
-            {PHOTOS.map((p) => (
-              <Photo
-                key={p.slug}
-                slug={p.slug}
-                alt={p.alt}
-                sizes="(min-width: 1024px) 20rem, 46vw"
-                className={`w-full rounded-[1.2rem] ${p.className}`}
-              />
+          <div className="mt-10 grid grid-cols-2 gap-3">
+            {PHOTOS.map((p, i) => (
+              <Unveil key={p.slug} className={p.className} delay={i * 0.12}>
+                <Photo slug={p.slug} alt={p.alt} sizes="(min-width: 1024px) 20rem, 46vw" className="size-full" />
+              </Unveil>
             ))}
-          </Reveal>
+          </div>
         </div>
 
         <Reveal className="lg:col-span-7 lg:pl-6" delay={0.1}>
@@ -144,7 +140,7 @@ export function Birthday() {
                   return (
                     <label
                       key={it.id}
-                      className={`relative flex cursor-pointer items-start gap-3.5 rounded-[1.2rem] p-4 transition-colors has-[:focus-visible]:outline-3 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-mar ${
+                      className={`relative flex cursor-pointer items-start gap-3.5 rounded-[1.2rem] p-4 transition-[background-color,color,transform] duration-200 active:scale-[0.98] has-[:focus-visible]:outline-3 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-mar ${
                         on ? 'bg-ink text-cotton' : 'bg-mist text-ink hover:bg-ink/15'
                       } ${it.id === 'souvenirs' ? 'sm:col-span-2' : ''}`}
                     >
@@ -152,7 +148,18 @@ export function Birthday() {
                       <span
                         className={`grid size-11 shrink-0 place-items-center rounded-full transition-colors ${on ? 'bg-sol text-ink' : 'bg-cotton text-ink'}`}
                       >
-                        {on ? <Check className="size-5" aria-hidden /> : <Icon className="size-5" aria-hidden />}
+                        <AnimatePresence mode="popLayout" initial={false}>
+                          <motion.span
+                            key={on ? 'on' : 'off'}
+                            className="grid place-items-center"
+                            initial={{ scale: 0.3, rotate: -120, opacity: 0 }}
+                            animate={{ scale: 1, rotate: 0, opacity: 1 }}
+                            exit={{ scale: 0.3, rotate: 90, opacity: 0 }}
+                            transition={{ type: 'spring', stiffness: 520, damping: 26 }}
+                          >
+                            {on ? <Check className="size-5" aria-hidden /> : <Icon className="size-5" aria-hidden />}
+                          </motion.span>
+                        </AnimatePresence>
                       </span>
                       <span>
                         <span className="block text-[1.05rem] font-semibold leading-snug">{it.label}</span>

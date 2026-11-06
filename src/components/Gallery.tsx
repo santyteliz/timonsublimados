@@ -5,7 +5,7 @@ import { SITE, waLink } from '../data/site'
 import { CATEGORIES, WORKS, img, imgMeta, type Category, type Shape, type Work } from '../data/works'
 import { InstagramIcon, WhatsAppIcon } from './brand/SocialIcons'
 import { Photo } from './ui/Photo'
-import { Reveal } from './ui/Reveal'
+import { Reveal, Rise } from './ui/Reveal'
 
 const SPAN: Record<Shape, string> = {
   square: '',
@@ -56,7 +56,7 @@ export function Gallery() {
       <div className="mx-auto max-w-[88rem] px-4 sm:px-6 lg:px-10">
         <Reveal className="grid gap-6 lg:grid-cols-12 lg:items-end">
           <h2 id="trabajos-title" className="display text-[clamp(3rem,8vw,6.5rem)] lg:col-span-7">
-            Hecho en el taller
+            <Rise>Hecho en el taller</Rise>
           </h2>
           <p className="max-w-[30rem] text-[1.15rem] leading-relaxed text-ink-soft text-pretty lg:col-span-5 lg:justify-self-end">
             Pedidos reales de clientes, clubes, balnearios y emprendimientos. Tocá cualquier foto para verla grande y
@@ -95,7 +95,7 @@ export function Gallery() {
           style={{ gridTemplateColumns: 'repeat(var(--cols), minmax(0, 1fr))', gridAutoRows: 'calc((100cqw - (var(--cols) - 1) * var(--gap)) / var(--cols))' } as CSSProperties}
         >
           <AnimatePresence mode="popLayout" initial={false}>
-            {visible.map((w) => (
+            {visible.map((w, i) => (
               <motion.li
                 key={w.slug}
                 layout={!reduce}
@@ -105,13 +105,20 @@ export function Gallery() {
                 exit={{ opacity: 0, scale: 0.94 }}
                 transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
               >
+                <motion.div
+                  className="size-full"
+                  initial={reduce ? false : { opacity: 0, y: 36 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: '0px 0px -8% 0px' }}
+                  transition={{ duration: 0.7, delay: (i % 2) * 0.08, ease: [0.22, 1, 0.36, 1] }}
+                >
                 <button
                   type="button"
                   onClick={(e) => {
                     lastTrigger.current = e.currentTarget
                     setOpen(list.indexOf(w))
                   }}
-                  className="group relative block size-full overflow-hidden rounded-[1.1rem] bg-mist md:rounded-[1.4rem]"
+                  className="group relative block size-full overflow-hidden rounded-[1.1rem] bg-mist transition-transform duration-200 active:scale-[0.98] md:rounded-[1.4rem]"
                   aria-label={`Ver ${w.title}`}
                 >
                   <Photo
@@ -129,6 +136,7 @@ export function Gallery() {
                     <Plus className="size-5 shrink-0" aria-hidden />
                   </span>
                 </button>
+                </motion.div>
               </motion.li>
             ))}
           </AnimatePresence>

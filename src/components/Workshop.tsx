@@ -1,7 +1,7 @@
 import { CLIENTS } from '../data/services'
 import { Wave } from './brand/Logo'
 import { Photo } from './ui/Photo'
-import { Reveal } from './ui/Reveal'
+import { Reveal, Rise, Unveil } from './ui/Reveal'
 
 const REASONS = [
   {
@@ -31,16 +31,18 @@ export function Workshop() {
     <section id="taller" aria-labelledby="taller-title" className="overflow-hidden py-24 md:py-32">
       <div className="mx-auto max-w-[88rem] px-4 sm:px-6 lg:px-10">
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-10">
-          <Reveal className="lg:col-span-6">
+          <div className="lg:col-span-6">
             <figure>
               <div className="relative">
-                <Photo
-                  slug="historia-serigrafia"
-                  alt="Foto de archivo familiar: un stand de máquinas para serigrafía en una exposición, con tres personas posando"
-                  sizes="(min-width: 1024px) 44vw, 92vw"
-                  className="aspect-[5/4] w-full rounded-[1.75rem] sepia-[0.15]"
-                  focus="30% 55%"
-                />
+                <Unveil className="aspect-[5/4] w-full" radius="1.75rem">
+                  <Photo
+                    slug="historia-serigrafia"
+                    alt="Foto de archivo familiar: un stand de máquinas para serigrafía en una exposición, con tres personas posando"
+                    sizes="(min-width: 1024px) 44vw, 92vw"
+                    className="size-full sepia-[0.15]"
+                    focus="30% 55%"
+                  />
+                </Unveil>
                 <span aria-hidden className="absolute -right-2 -bottom-6 grid size-[20%] place-items-center rounded-full bg-sol text-ink shadow-[0_0_0_8px_var(--color-cotton)] md:-right-5">
                   <Wave className="w-[62%]" />
                 </span>
@@ -49,11 +51,11 @@ export function Workshop() {
                 Archivo familiar: un stand de máquinas para serigrafía en una exposición textil.
               </figcaption>
             </figure>
-          </Reveal>
+          </div>
 
           <Reveal className="lg:col-span-6 lg:pt-6 lg:pl-6" delay={0.1}>
             <h2 id="taller-title" className="display text-[clamp(3rem,7.4vw,6rem)]">
-              Un oficio que viene de familia
+              <Rise>Un oficio que viene de familia</Rise>
             </h2>
             <div className="mt-8 max-w-[34rem] space-y-5 text-[1.15rem] leading-relaxed text-ink-soft text-pretty">
               <p>

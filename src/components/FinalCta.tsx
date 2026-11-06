@@ -1,7 +1,7 @@
 import { SITE, WA_MESSAGES, waLink } from '../data/site'
 import { Wave } from './brand/Logo'
 import { InstagramIcon, WhatsAppIcon } from './brand/SocialIcons'
-import { Reveal } from './ui/Reveal'
+import { Reveal, Rise } from './ui/Reveal'
 
 export function FinalCta() {
   return (
@@ -13,7 +13,7 @@ export function FinalCta() {
       <div className="relative mx-auto max-w-[88rem] px-4 py-24 sm:px-6 md:py-36 lg:px-10">
         <Reveal>
           <h2 id="cta-title" className="display max-w-[11ch] text-[clamp(3.6rem,11vw,10rem)]">
-            Tu próximo proyecto empieza acá.
+            <Rise>Tu próximo proyecto empieza acá.</Rise>
           </h2>
           <p className="mt-8 max-w-[30rem] text-[1.2rem] leading-relaxed text-cotton/80">
             Escribinos con lo que tengas en mente. Te respondemos por WhatsApp con opciones para hacerlo.

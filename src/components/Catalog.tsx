@@ -6,7 +6,7 @@ import type { Work } from '../data/works'
 import { Wave } from './brand/Logo'
 import { WhatsAppIcon } from './brand/SocialIcons'
 import { Photo } from './ui/Photo'
-import { Reveal } from './ui/Reveal'
+import { Reveal, Rise } from './ui/Reveal'
 
 /** Lista tipográfica de productos. En escritorio, al pasar el mouse aparece la foto real. */
 export function Catalog() {
@@ -29,7 +29,7 @@ export function Catalog() {
       <div className="mx-auto max-w-[88rem] px-4 sm:px-6 lg:px-10">
         <Reveal className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <h2 id="catalogo-title" className="display max-w-[12ch] text-[clamp(3rem,8vw,6.5rem)]">
-            Todo esto sale del taller
+            <Rise>Todo esto sale del taller</Rise>
           </h2>
           <p className="max-w-[24rem] text-[1.1rem] leading-relaxed text-cotton/80">
             Algunas de las cosas que ya hicimos. Si lo que buscás no está, igual preguntanos.

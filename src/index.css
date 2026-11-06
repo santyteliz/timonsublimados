@@ -23,6 +23,10 @@
 }
 
 @layer base {
+  /* Una foto o un texto largo nunca agranda la columna de una grilla (evita que en el celular el contenido quede corrido). */
+  :where(.grid) > * {
+    min-width: 0;
+  }
   html {
     scroll-behavior: smooth;
     scroll-padding-top: 5rem;
@@ -34,6 +38,7 @@
     }
   }
   body {
+    overflow-x: clip;
     background: var(--color-cotton);
     color: var(--color-ink);
     font-family: var(--font-sans);

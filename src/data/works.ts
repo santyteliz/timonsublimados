@@ -42,7 +42,6 @@ export const WORKS: Work[] = [
   { slug: 'tazas-nombre', title: 'Tazas con nombre', detail: 'Una tanda entera, cada una con su nombre', category: 'personalizados', shape: 'square' },
   { slug: 'tops-planos', title: 'Tops recién cosidos', detail: 'Estampados y armados en el taller', category: 'deportivo', shape: 'square', focus: '50% 30%' },
   { slug: 'uniforme-parroquial', title: 'Uniforme de básquet', detail: 'Musculosa y short para Parroquial', category: 'equipos', shape: 'tall', focus: '50% 35%' },
-  { slug: 'mates-sublimados', title: 'Mates sublimados', detail: 'Cada uno con su diseño', category: 'personalizados', shape: 'square', focus: '50% 55%' },
   { slug: 'remera-cvd', title: 'Remeras para CVD Fitness Club', detail: 'Logo en dos colores', category: 'equipos', shape: 'square', focus: '50% 45%' },
   { slug: 'top-tropical-espalda', title: 'Espalda nadadora', detail: 'El mismo top, visto de atrás', category: 'deportivo', shape: 'tall', focus: '50% 40%' },
   { slug: 'remeras-running-tandil', title: 'Remeras para Otta Team', detail: '«Expectativa» y «realidad» para una carrera de trail en Tandil', category: 'equipos', shape: 'wide' },
